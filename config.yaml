@@ -1,0 +1,38 @@
+dataset:
+  source: 'vk'
+  batch: 100
+  size: 100000
+  dates:
+    from: '01.04.21'
+    to: '01.04.23'
+  vk:
+    sleep: 0.1
+    domains:
+      - lentach
+      - ria
+      - rt_russian
+      - vesti
+      - rentvchannel
+      - 1tvnews
+      - public188318774
+      - inside__rus
+      - news_first
+      - samyesvezhienovosti
+      - public152689806
+      - worldnewis
+      - the_black_news
+      - celebrities_pub
+      - public63990175
+      - top_novostnoy
+      - gor_novosti1
+      - chets_news
+      - latests_news
+      - sssr_90_2000
+      - public28423507
+      - best_news1
+      - public193231553
+
+
+credentials:
+  login: 89277583192
+  password: null
