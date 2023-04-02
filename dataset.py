@@ -152,9 +152,10 @@ def run():
     df.to_csv('data/dataset.csv')
 
 
-def extend():
+def extend_dataset():
     config = read_config()
-    df = pd.read_csv('data/2_try/dataset.csv')[:10]
+    df = pd.read_csv('data/dataset_united.csv', low_memory=True)
+
     domains = df.domain.unique()
     domains_dict = dict(zip(domains, range(len(domains))))
     windows = config['dataset']['time']['windows']
@@ -166,7 +167,7 @@ def extend():
     urls = [extract_urls(text) for text in df.text]
     df = df.join(pd.DataFrame(urls, columns=['urls', 'url_count']))
 
-    time_windows = [get_time_window(hour, night, morning, day) for hour in df.hour]
+    time_windows = [get_time_window(int(hour), night, morning, day) for hour in df.hour]
     df = df.join(pd.DataFrame(time_windows, columns=['time_window', 'time_window_id']))
 
     df['domain_id'] = df.domain.map(domains_dict)
@@ -175,31 +176,26 @@ def extend():
     df['log1p_reposts'] = np.log1p(df.reposts)
     df['log1p_views'] = np.log1p(df.views)
 
+    cols = ['text', 'len_text', 'domain', 'domain_id', 'views', 'log1p_views', 'likes', 'log1p_likes', 'reposts',
+            'log1p_reposts', 'comments', 'log1p_comments', 'is_pinned', 'post_source', 'post_source_id', 'hashtags',
+            'hashtag_count', 'urls', 'url_count', 'date', 'time_window', 'time_window_id', 'year', 'month', 'dayofweek',
+            'hour', 'attachments']
+
     df.drop(df.columns[[0]], axis=1, inplace=True)
     df.fillna(0, inplace=True)
+
+    df = df[cols]
 
     df.to_csv('data/dataset_united_extended.csv')
 
 
 def unite():
-    CHUNK_SIZE = 5000
-    csv_file_list = ['data/1_try/dataset.csv', 'data/2_try/dataset.csv']
-    output_file = 'data/dataset_united.csv'
-
-    first_one = True
-    for csv_file_name in csv_file_list:
-
-        if not first_one:  # if it is not the first csv file then skip the header row (row 0) of that file
-            skip_row = [0]
-        else:
-            skip_row = []
-
-        chunk_container = pd.read_csv(csv_file_name, chunksize=CHUNK_SIZE, skiprows=skip_row)
-        for chunk in chunk_container:
-            chunk.to_csv(output_file, mode="a", index=False)
-        first_one = False
+    df1 = pd.read_csv('data/1_try/dataset.csv', low_memory=True)
+    df2 = pd.read_csv('data/2_try/dataset.csv', low_memory=True)
+    df = pd.concat([df1, df2])
+    df.to_csv('data/dataset_united.csv', mode='w')
 
 
 # run()
-# extend()
-unite()
+# extend_dataset()
+# unite()
