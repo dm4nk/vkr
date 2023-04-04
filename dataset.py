@@ -196,6 +196,33 @@ def unite():
     df.to_csv('data/dataset_united.csv', mode='w')
 
 
+def cut_data():
+    df = pd.read_csv('data/dataset_united_extended.csv')
+    df = df['text']
+    df.to_csv('data/dataset_with_text_only.csv')
+
+
+def add_semantics():
+    df1 = pd.read_csv('data/dataset_united_extended.csv', low_memory=True)
+    cols = ['is_pinned', 'text', 'len_text', 'domain', 'domain_id', 'views', 'likes', 'reposts',
+            'comments', 'log1p_views', 'log1p_likes', 'log1p_reposts', 'log1p_comments', 'post_source',
+            'post_source_id',
+            'hashtags',
+            'hashtag_count', 'urls', 'url_count', 'date', 'time_window', 'time_window_id', 'year', 'month', 'dayofweek',
+            'hour', 'attachments']
+
+    df1 = df1[cols]
+
+    df2 = pd.read_csv('data/dataset_with_semantic.csv', low_memory=True)
+    result = pd.concat([df1, df2], axis=1, join="inner")
+
+    result.drop('Unnamed: 0', axis=1, inplace=True)
+    result.fillna(0, inplace=True)
+    result.to_csv('data/dataset_with_semantic_extended.csv', mode='w')
+
+
 # run()
 # extend_dataset()
 # unite()
+# cut_data()
+add_semantics()
