@@ -9,7 +9,7 @@ import vk_api
 import yaml
 from tqdm import tqdm
 
-from utils import read_config
+from utils import read_config, normalize_columns
 
 VK = 'vk'
 dull = lambda x: x
@@ -159,6 +159,7 @@ def extend_dataset():
     config = read_config()
     df = pd.read_csv('data/dataset.csv')
     df.drop(df[df.len_text == 0].index, inplace=True)
+    df.fillna(0, inplace=True)
 
     domains = df.domain.unique()
     domains_dict = dict(zip(domains, range(len(domains))))
@@ -183,12 +184,15 @@ def extend_dataset():
     df['log1p_reposts'] = np.log1p(df.reposts)
     df['log1p_views'] = np.log1p(df.views)
 
-    df.fillna(0, inplace=True)
+    cols_to_normalize = ['len_text', 'domain_id', 'log1p_views', 'log1p_likes', 'log1p_reposts', 'log1p_comments',
+                         'hashtag_count', 'url_count', 'time_window_id', 'dayofweek', 'attachments']
+
+    normalize_columns(df, cols_to_normalize)
 
     cols = ['text', 'len_text', 'domain', 'domain_id', 'views', 'log1p_views', 'likes', 'log1p_likes', 'reposts',
             'log1p_reposts', 'comments', 'log1p_comments', 'is_pinned', 'post_source', 'post_source_id', 'hashtags',
             'hashtag_count', 'urls', 'url_count', 'date', 'time_window', 'time_window_id', 'year', 'month', 'dayofweek',
-            'hour', 'attachments']
+            'hour', 'attachments'] + cols_to_normalize
 
     df = df[cols]
 
