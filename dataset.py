@@ -1,20 +1,22 @@
-import json
 import re
 import time
 from datetime import datetime
 
+import emoji as emoji
 import numpy as np
 import pandas as pd
 import vk_api
 import yaml
 from tqdm import tqdm
 
+from utils import read_config
+
 VK = 'vk'
 dull = lambda x: x
 t_count = lambda x: x.get('count') if x else None
 features = {
-    'date': dull,
     'text': dull,
+    'date': dull,
     'is_pinned': dull,
     'attachments': lambda x: len(x) if x else None,
     'post_source': lambda x: x.get('type') if x else None,
@@ -35,11 +37,6 @@ def captcha_handler(captcha):
     return captcha.try_again(key)
 
 
-def read_config():
-    with open('config.yaml', 'r') as stream:
-        return yaml.safe_load(stream)
-
-
 def read_token():
     with open('token.yaml', 'r') as stream:
         return yaml.safe_load(stream)
@@ -49,31 +46,34 @@ def check_time_bounds(post, from_time_timestamp, to_time_timestamp):
     return from_time_timestamp < float(post['date']) < to_time_timestamp
 
 
-def get_posts_from_group(batch, domain, items, posts, size, sleep, vk, from_time_timestamp, to_time_timestamp):
-    with open('data/posts.json', 'a', encoding='utf-8') as file:
-        for i in tqdm(range(0, size, batch)):
-            dose = None
-            while (not dose) or ('error' in dose):
-                dose = vk.wall.get(domain=domain, count=batch, filter='owner', offset=i)
+def get_posts_from_group(batch, domain, size, sleep, vk, from_time_timestamp, to_time_timestamp):
+    items = []
+    posts = []
+    for i in tqdm(range(0, size, batch)):
+        dose = None
+        while (not dose) or ('error' in dose):
+            dose = vk.wall.get(domain=domain, count=batch, filter='owner', offset=i)
 
-                with open('data/raw_posts.json', 'a', encoding='utf-8') as raw_posts_file:
-                    json.dump(dose, raw_posts_file, indent=4, ensure_ascii=False)
+            # with open('data/raw_posts.json', 'a', encoding='utf-8') as raw_posts_file:
+            #     json.dump(dose, raw_posts_file, indent=4, ensure_ascii=False)
 
-                time.sleep(sleep)
-            if 'items' in dose:
-                dose['items'] = [post for post in dose['items'] if
-                                 check_time_bounds(post, from_time_timestamp, to_time_timestamp)]
-                if len(dose['items']) == 0:
-                    break
-                items.extend(dose['items'])
+            time.sleep(sleep)
 
-        for i, item in enumerate(items):
-            row = {'index': i}
-            for key, f in features.items():
-                row[key] = f(item.get(key))
-            row['domain'] = domain
-            json.dump(row, file, indent=4, ensure_ascii=False)
-            posts.append(row)
+        if 'items' in dose:
+            tmp = [post for post in dose['items'] if
+                   check_time_bounds(post, from_time_timestamp, to_time_timestamp)]
+            if len(tmp) == 0:
+                break
+            items.extend(tmp)
+
+    for i, item in enumerate(items):
+        row = {'index': i}
+        for key, f in features.items():
+            row[key] = f(item.get(key))
+        row['domain'] = domain
+        posts.append(row)
+
+    return posts
 
 
 def get_posts_from_vk(config, token):
@@ -93,16 +93,15 @@ def get_posts_from_vk(config, token):
         vk_session = vk_api.VkApi(login, password, auth_handler=auth_handler, captcha_handler=captcha_handler)
         vk_session.auth()
 
-    print(vk_session.token)
     vk = vk_session.get_api()
-    items = []
-    posts = []
 
+    flag = True
     for domain in domains:
         print(f'\n\n<{"=" * 3} Getting data from {domain} {"=" * 3}>')
-        get_posts_from_group(batch, domain, items, posts, size, sleep, vk, from_time.timestamp(), to_time.timestamp())
-
-    return posts
+        posts = get_posts_from_group(batch, domain, size, sleep, vk, from_time.timestamp(), to_time.timestamp())
+        df = get_data_frame(posts)
+        df.to_csv('data/dataset.csv', mode='a', index=False, header=flag)
+        flag = False
 
 
 def get_data_frame(posts):
@@ -114,6 +113,7 @@ def get_data_frame(posts):
     df['month'] = df['date'].dt.month
     df['dayofweek'] = df['date'].dt.dayofweek
     df['hour'] = df['date'].dt.hour
+    df.drop(df[df.len_text == 0].index, inplace=True)
     df.fillna(0, inplace=True)
 
     return df
@@ -133,6 +133,11 @@ def extract_urls(text):
     return url_str, len(url_list)
 
 
+def extract_emojis(text):
+    emoji_list = list(map(lambda o: o['emoji'], emoji.emoji_list(text)))
+    return emoji_list, len(emoji_list)
+
+
 def get_time_window(hour, night, morning, day):
     if hour < night:
         return 'night', 0
@@ -147,14 +152,13 @@ def run():
     config = read_config()
     token = read_token()
     source = config['dataset']['source']
-    posts = get_posts_from_vk(config, token) if source == VK else None
-    df = get_data_frame(posts)
-    df.to_csv('data/dataset.csv')
+    get_posts_from_vk(config, token) if source == VK else None
 
 
 def extend_dataset():
     config = read_config()
-    df = pd.read_csv('data/dataset_united.csv', low_memory=True)
+    df = pd.read_csv('data/dataset.csv')
+    df.drop(df[df.len_text == 0].index, inplace=True)
 
     domains = df.domain.unique()
     domains_dict = dict(zip(domains, range(len(domains))))
@@ -167,6 +171,9 @@ def extend_dataset():
     urls = [extract_urls(text) for text in df.text]
     df = df.join(pd.DataFrame(urls, columns=['urls', 'url_count']))
 
+    emojis = [extract_emojis(text) for text in df.text]
+    df = df.join(pd.DataFrame(emojis, columns=['emoji', 'emoji_count']))
+
     time_windows = [get_time_window(int(hour), night, morning, day) for hour in df.hour]
     df = df.join(pd.DataFrame(time_windows, columns=['time_window', 'time_window_id']))
 
@@ -176,53 +183,50 @@ def extend_dataset():
     df['log1p_reposts'] = np.log1p(df.reposts)
     df['log1p_views'] = np.log1p(df.views)
 
+    df.fillna(0, inplace=True)
+
     cols = ['text', 'len_text', 'domain', 'domain_id', 'views', 'log1p_views', 'likes', 'log1p_likes', 'reposts',
             'log1p_reposts', 'comments', 'log1p_comments', 'is_pinned', 'post_source', 'post_source_id', 'hashtags',
             'hashtag_count', 'urls', 'url_count', 'date', 'time_window', 'time_window_id', 'year', 'month', 'dayofweek',
             'hour', 'attachments']
 
-    df.drop(df.columns[[0]], axis=1, inplace=True)
-    df.fillna(0, inplace=True)
-
     df = df[cols]
 
-    df.to_csv('data/dataset_united_extended.csv')
-
-
-def unite():
-    df1 = pd.read_csv('data/1_try/dataset.csv', low_memory=True)
-    df2 = pd.read_csv('data/2_try/dataset.csv', low_memory=True)
-    df = pd.concat([df1, df2])
-    df.to_csv('data/dataset_united.csv', mode='w')
+    df.to_csv('data/dataset_extended.csv')
 
 
 def cut_data():
-    df = pd.read_csv('data/dataset_united_extended.csv')
+    df = pd.read_csv('data/dataset_extended.csv')
     df = df['text']
     df.to_csv('data/dataset_with_text_only.csv')
 
 
 def add_semantics():
-    df1 = pd.read_csv('data/dataset_united_extended.csv', low_memory=True)
+    df1 = pd.read_csv('data/dataset_extended.csv')
     cols = ['is_pinned', 'text', 'len_text', 'domain', 'domain_id', 'views', 'likes', 'reposts',
             'comments', 'log1p_views', 'log1p_likes', 'log1p_reposts', 'log1p_comments', 'post_source',
-            'post_source_id',
-            'hashtags',
-            'hashtag_count', 'urls', 'url_count', 'date', 'time_window', 'time_window_id', 'year', 'month', 'dayofweek',
-            'hour', 'attachments']
+            'post_source_id', 'hashtags', 'hashtag_count', 'urls', 'url_count', 'date', 'time_window', 'time_window_id',
+            'year', 'month', 'dayofweek', 'hour', 'attachments']
 
     df1 = df1[cols]
 
-    df2 = pd.read_csv('data/dataset_with_semantic.csv', low_memory=True)
+    df2 = pd.read_csv('data/dataset_with_semantic.csv')
     result = pd.concat([df1, df2], axis=1, join="inner")
 
     result.drop('Unnamed: 0', axis=1, inplace=True)
     result.fillna(0, inplace=True)
-    result.to_csv('data/dataset_with_semantic_extended.csv', mode='w')
+    result.to_csv('data/dataset_extended_semantics.csv')
 
 
-# run()
+def clean():
+    df = pd.read_csv('data/dataset.csv')
+    df.drop(df[df.domain == '1tvnews'].index, inplace=True)
+    df.to_csv('data/dataset.csv', mode='w', index=False, header=True)
+
+
+run()
 # extend_dataset()
-# unite()
 # cut_data()
-add_semantics()
+# add_semantics()
+
+# clean()

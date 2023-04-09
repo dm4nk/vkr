@@ -1,22 +1,22 @@
 dataset:
   source: 'vk'
   batch: 100
-  size: 100000
+  size: 1_000_000
   dates:
-    from: '01.04.21'
-    to: '01.04.23'
+    from: '09.04.21'
+    to: '09.04.23'
   time:
     windows:
       night: 7
       morning: 11
       day: 18
   vk:
-    sleep: 0.1
+    sleep: 1
     domains:
-      - lentach
-      - ria
-      - vesti
-      - rentvchannel
+#      - lentach
+#      - ria
+#      - vesti
+#      - rentvchannel
       - 1tvnews
       - inside__rus
       - news_first
@@ -44,6 +44,15 @@ dataset:
       - russiaonliane
       - znamynws
       - habr
+
+preprocessing:
+  options:
+    convert:
+      numbers: false
+  garbage:
+    - пусть
+  words:
+
 
 
 credentials:
