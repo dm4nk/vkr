@@ -1,15 +1,20 @@
+from time import time
+
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
 
 from utils import read_config
 
 
-def run():
+def random_forest():
+    start = time()
+
     X_cols_add = []
     y_col = 'log1p_likes_normalized'
 
@@ -19,7 +24,7 @@ def run():
     best = config['classification']['ranges']['best']
 
     ngram_range = (config['classification']['ngram']['min'], config['classification']['ngram']['max'])
-    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.90, min_df=0.001)
+    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.98, min_df=0.01)
 
     df = pd.read_csv('data/dataset_preprocessed.csv')
     df.drop(df[df.text == ''].index, inplace=True)
@@ -48,14 +53,31 @@ def run():
 
     X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.2, random_state=1)
 
-    rf = RandomForestClassifier(n_estimators=1000, verbose=True)
+    rf = RandomForestClassifier(n_estimators=300, verbose=True)
     rf.fit(X_train, y_train)
 
-    predictions = rf.predict(X_test)
-    cm = confusion_matrix(y_test, predictions, labels=rf.classes_)
+    y_pred = rf.predict(X_test)
+
+    f1 = f1_score(y_test, y_pred, average='macro')
+    precision = precision_score(y_test, y_pred, average='macro')
+    recall = recall_score(y_test, y_pred, average="macro")
+
+    print(f'F1: {f1}')
+    print(f'Precision: {precision}')
+    print(f'Recall: {recall}')
+
+    cm = confusion_matrix(y_test, y_pred, labels=rf.classes_)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=rf.classes_)
     disp.plot()
+
+    end = time()
+    print(f'Execution time: {(end - start) / 60} minutes')
+    with open('logs/classifier_log.txt', 'w') as classifier_log:
+        classifier_log.write(f'Random forest classifier with {len(X_features)} features '
+                             f'executed {(end - start) / 60} minutes\n'
+                             f'F1: {f1}\nPrecision: {precision}\nRecall: {recall}')
+
     plt.show()
 
 
-run()
+random_forest()

@@ -159,26 +159,33 @@ def extend_dataset():
     config = read_config()
     df = pd.read_csv('data/dataset.csv')
     df.drop(df[df.len_text == 0].index, inplace=True)
-    df.fillna(0, inplace=True)
+    df.drop(df[df.len_text == 'len_text'].index, inplace=True)
+    df.dropna(inplace=True)
 
     domains = df.domain.unique()
     domains_dict = dict(zip(domains, range(len(domains))))
     windows = config['dataset']['time']['windows']
     night, morning, day = windows['night'], windows['morning'], windows['day']
 
+    print('calculating hash_tags')
     hash_tags = [extract_hashtags(text) for text in df.text]
     df = df.join(pd.DataFrame(hash_tags, columns=['hashtags', 'hashtag_count']))
 
+    print('calculating urls')
     urls = [extract_urls(text) for text in df.text]
     df = df.join(pd.DataFrame(urls, columns=['urls', 'url_count']))
 
+    print('calculating emojis')
     emojis = [extract_emojis(text) for text in df.text]
     df = df.join(pd.DataFrame(emojis, columns=['emoji', 'emoji_count']))
 
+    print('calculating time_windows')
     time_windows = [get_time_window(int(hour), night, morning, day) for hour in df.hour]
     df = df.join(pd.DataFrame(time_windows, columns=['time_window', 'time_window_id']))
 
     df['domain_id'] = df.domain.map(domains_dict)
+
+    print('calculating log1p')
     df['log1p_comments'] = np.log1p(df.comments)
     df['log1p_likes'] = np.log1p(df.likes)
     df['log1p_reposts'] = np.log1p(df.reposts)
@@ -187,12 +194,13 @@ def extend_dataset():
     cols_to_normalize = ['len_text', 'domain_id', 'log1p_views', 'log1p_likes', 'log1p_reposts', 'log1p_comments',
                          'hashtag_count', 'url_count', 'time_window_id', 'dayofweek', 'attachments']
 
+    print('normalizing cloumns')
     normalize_columns(df, cols_to_normalize)
 
     cols = ['text', 'len_text', 'domain', 'domain_id', 'views', 'log1p_views', 'likes', 'log1p_likes', 'reposts',
             'log1p_reposts', 'comments', 'log1p_comments', 'is_pinned', 'post_source', 'post_source_id', 'hashtags',
-            'hashtag_count', 'urls', 'url_count', 'date', 'time_window', 'time_window_id', 'year', 'month', 'dayofweek',
-            'hour', 'attachments'] + cols_to_normalize
+            'hashtag_count', 'urls', 'url_count', 'emoji', 'emoji_count', 'date', 'time_window', 'time_window_id',
+            'year', 'month', 'dayofweek', 'hour', 'attachments'] + cols_to_normalize
 
     df = df[cols]
 
@@ -228,9 +236,9 @@ def clean():
     df.to_csv('data/dataset.csv', mode='w', index=False, header=True)
 
 
-run()
-# extend_dataset()
-# cut_data()
+# run()
+extend_dataset()
+cut_data()
 # add_semantics()
 
 # clean()

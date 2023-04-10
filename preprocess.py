@@ -22,7 +22,7 @@ def run():
     morph = pymorphy2.MorphAnalyzer()
     hashed_stop_words = set([hash(word) for word in get_stop_words('ru') + garbage])
 
-    df = pd.read_csv('data/dataset.csv')
+    df = pd.read_csv('data/dataset_extended.csv')
     df.drop(df[df.len_text == 0].index, inplace=True)
 
     print(df.text)

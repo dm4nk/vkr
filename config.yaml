@@ -11,7 +11,7 @@ dataset:
       morning: 11
       day: 18
   vk:
-    sleep: 1
+    sleep: 0.2
     domains:
 #      - lentach
 #      - ria
