@@ -200,16 +200,16 @@ def extend_dataset():
     cols = ['text', 'len_text', 'domain', 'domain_id', 'views', 'log1p_views', 'likes', 'log1p_likes', 'reposts',
             'log1p_reposts', 'comments', 'log1p_comments', 'is_pinned', 'post_source', 'post_source_id', 'hashtags',
             'hashtag_count', 'urls', 'url_count', 'emoji', 'emoji_count', 'date', 'time_window', 'time_window_id',
-            'year', 'month', 'dayofweek', 'hour', 'attachments'] + cols_to_normalize
+            'year', 'month', 'dayofweek', 'hour', 'attachments'] + [col + '_normalized' for col in cols_to_normalize]
 
     df = df[cols]
 
-    df.to_csv('data/dataset_extended.csv')
+    df.to_csv('data/dataset_extended.csv', index=False)
 
 
 def cut_data():
-    df = pd.read_csv('data/dataset_extended.csv')
-    df = df['text']
+    df = pd.read_csv('data/dataset_preprocessed.csv')
+    df = df[['text', 'preprocessed_text']]
     df.to_csv('data/dataset_with_text_only.csv')
 
 
@@ -238,7 +238,7 @@ def clean():
 
 # run()
 extend_dataset()
-cut_data()
+# cut_data()
 # add_semantics()
 
 # clean()

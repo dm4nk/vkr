@@ -23,9 +23,9 @@ def run():
     hashed_stop_words = set([hash(word) for word in get_stop_words('ru') + garbage])
 
     df = pd.read_csv('data/dataset_extended.csv')
+    print(f'Initial size: {df.shape[0]}')
     df.drop(df[df.len_text == 0].index, inplace=True)
-
-    print(df.text)
+    print(f'Size after first drop: {df.shape[0]}')
 
     df["preprocessed_text"] = df.text \
         .progress_apply(lambda lst: rt.tokenize(re.sub('http[s]?://\S+|\S+.ru|\S+.com|#\S+', '', lst))) \
@@ -40,6 +40,8 @@ def run():
     print(f'{"=" * 20}====Raw====={"=" * 20}\n\n{df["text"][0]}\n\n'
           f'{"=" * 20}Preprocessed{"=" * 20}\n\n{df["preprocessed_text"][0]}')
 
+    df.preprocessed_text.dropna(inplace=True)
+    print(f'Size after second drop: {df.shape[0]}')
     df.to_csv('data/dataset_preprocessed.csv', index=False)
 
 
