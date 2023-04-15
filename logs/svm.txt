@@ -1,0 +1,14 @@
+
+
+2023-04-15 22:15:43.554129 SVM classifier parametersFeatures 529
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+
+
+2023-04-15 22:21:13.917374 SVM classifier parametersFeatures 529
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.711350150903066 minutes
+F1: 0.7275039970839694
+Precision: 0.7277591789693212
+Recall: 0.7278686687584044

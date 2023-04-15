@@ -4,11 +4,11 @@ from time import time
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
 
 from utils import read_config
 
@@ -39,7 +39,7 @@ def run():
     counter = 0
     like_to_category = {}
 
-    log_str = f'\n\n{datetime.now()} Random forest classifier parameters' + \
+    log_str = f'\n\n{datetime.now()} SVM classifier parameters' + \
               f'Features {len(X_features)}\n' + \
               f'X_cols_add: {X_cols_add}, y_col: {y_col}\n' + \
               f'Borders: bad({bad}) | good({good}) | best({best}))\n'
@@ -58,7 +58,7 @@ def run():
 
     X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.15, random_state=1)
 
-    classifier = RandomForestClassifier(n_estimators=1000, verbose=True)
+    classifier = SVC(C=1.0, kernel='linear', degree=3, gamma='auto', verbose=True)
     classifier.fit(X_train, y_train)
 
     y_pred = classifier.predict(X_test)
@@ -77,7 +77,7 @@ def run():
                       f'F1: {f1}\nPrecision: {precision}\nRecall: {recall}'
 
     print(log_str_results)
-    with open('logs/random_forest.txt', 'a') as classifier_log:
+    with open('logs/svm.txt', 'a') as classifier_log:
         classifier_log.write(log_str + log_str_results)
 
     plt.show()

@@ -209,6 +209,10 @@ def extend_dataset():
 
 def cut_data():
     df = pd.read_csv('data/dataset_preprocessed.csv')
+    print(len(df))
+    df = df[df.preprocessed_text.notnull()]
+    print(len(df))
+    df.to_csv('data/dataset_preprocessed_2.csv')
     df = df[['text', 'preprocessed_text']]
     df.to_csv('data/dataset_with_text_only.csv')
 
@@ -237,8 +241,8 @@ def clean():
 
 
 # run()
-extend_dataset()
-# cut_data()
+# extend_dataset()
+cut_data()
 # add_semantics()
 
 # clean()

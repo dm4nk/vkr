@@ -47,3 +47,53 @@ Borders: bad(0.6) | good(0 | best(0.4))
 F1: 0.765526976386325
 Precision: 0.7637787089757533
 Recall: 0.7682875816993464
+
+2023-04-12 00:40:42.806328 Random forest classifier parametersFeatures 529
+executed 1.4724196434020995 minutes
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0 | best(0.5))
+F1: 0.8055914041351524
+Precision: 0.8080307471030421
+Recall: 0.8052610936799641
+
+2023-04-12 00:44:41.704639 Random forest classifier parametersFeatures 529
+executed 0.36290719906489055 minutes
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0 | best(0.5))
+F1: 0.6310259418735547
+Precision: 0.6310125114680055
+Recall: 0.6310567010309278
+
+2023-04-15 21:41:26.204471 Random forest classifier parametersFeatures 529
+executed 1.4949921766916912 minutes
+X_cols_add: ['len_text_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0 | best(0.5))
+F1: 0.7970098326437476
+Precision: 0.7997880492377925
+Recall: 0.7967055132227701
+
+2023-04-15 21:44:14.581943 Random forest classifier parametersFeatures 529
+X_cols_add: ['len_text_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0 | best(0.5))
+executed 1.3761282086372375 minutes
+F1: 0.7931499549172979
+Precision: 0.7961045836540215
+Recall: 0.7934680251326709
+
+2023-04-15 21:46:42.024887 Random forest classifier parametersFeatures 529
+X_cols_add: ['len_text_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0 | best(0.5))
+
+
+2023-04-15 22:16:56.395823 Random forest classifier parametersFeatures 529
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+
+
+2023-04-15 22:19:19.737651 Random forest classifier parametersFeatures 529
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.5631020744641622 minutes
+F1: 0.8091359654835146
+Precision: 0.8125010631795135
+Recall: 0.8087852980726131
