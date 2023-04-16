@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
+from sklearn.svm import LinearSVC
 
 from utils import read_config
 
@@ -26,11 +26,10 @@ def run():
     best = config['classification']['ranges']['best']
 
     ngram_range = (config['classification']['ngram']['min'], config['classification']['ngram']['max'])
-    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.90, min_df=0.01)
+    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.80, min_df=0.005)
 
     df = pd.read_csv('data/dataset_preprocessed.csv')
-    df.drop(df[df.text == ''].index, inplace=True)
-    df.dropna(inplace=True)
+    df.fillna(0, inplace=True)
     X = df[['preprocessed_text'] + X_cols_add]
     X_corpus = vectorizer.fit_transform(X['preprocessed_text']).toarray()
     X_full = np.c_[X_corpus, X[X_cols_add].values]
@@ -58,7 +57,7 @@ def run():
 
     X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.15, random_state=1)
 
-    classifier = SVC(C=1.0, kernel='linear', degree=3, gamma='auto', verbose=True)
+    classifier = LinearSVC(C=0.025, verbose=True, dual=False, max_iter=1700)
     classifier.fit(X_train, y_train)
 
     y_pred = classifier.predict(X_test)

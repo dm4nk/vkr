@@ -17,7 +17,6 @@ def run():
     start = time()
     X_cols_add = [col + '_normalized' for col in
                   ['len_text', 'hashtag_count', 'url_count', 'time_window_id', 'dayofweek', 'attachments']]
-
     y_col = 'log1p_likes_normalized'
 
     config = read_config()
@@ -26,11 +25,10 @@ def run():
     best = config['classification']['ranges']['best']
 
     ngram_range = (config['classification']['ngram']['min'], config['classification']['ngram']['max'])
-    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.90, min_df=0.01)
+    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.90, min_df=0.005)
 
     df = pd.read_csv('data/dataset_preprocessed.csv')
-    df.drop(df[df.text == ''].index, inplace=True)
-    df.dropna(inplace=True)
+    df.fillna(0, inplace=True)
     X = df[['preprocessed_text'] + X_cols_add]
     X_corpus = vectorizer.fit_transform(X['preprocessed_text']).toarray()
     X_full = np.c_[X_corpus, X[X_cols_add].values]
@@ -39,7 +37,7 @@ def run():
     counter = 0
     like_to_category = {}
 
-    log_str = f'\n\n{datetime.now()} Random forest classifier parameters' + \
+    log_str = f'\n\n{datetime.now()} Random forest classifier parameters\n' + \
               f'Features {len(X_features)}\n' + \
               f'X_cols_add: {X_cols_add}, y_col: {y_col}\n' + \
               f'Borders: bad({bad}) | good({good}) | best({best}))\n'
@@ -56,9 +54,16 @@ def run():
 
     y = df[y_col].apply(lambda like_row: like_to_category.get(like_row))
 
-    X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.15, random_state=1)
+    X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.15, random_state=2)
 
-    classifier = RandomForestClassifier(n_estimators=1000, verbose=True)
+    classifier = RandomForestClassifier(criterion='gini',
+                                        min_samples_split=2,
+                                        min_samples_leaf=2,
+                                        max_features='sqrt',
+                                        n_estimators=1591,
+                                        max_depth=None,
+                                        n_jobs=10,
+                                        verbose=True)
     classifier.fit(X_train, y_train)
 
     y_pred = classifier.predict(X_test)

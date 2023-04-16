@@ -209,12 +209,15 @@ def extend_dataset():
 
 def cut_data():
     df = pd.read_csv('data/dataset_preprocessed.csv')
-    print(len(df))
-    df = df[df.preprocessed_text.notnull()]
-    print(len(df))
-    df.to_csv('data/dataset_preprocessed_2.csv')
-    df = df[['text', 'preprocessed_text']]
-    df.to_csv('data/dataset_with_text_only.csv')
+    df = df.sample(frac=0.05)
+    df.to_csv('data/dataset_preprocessed_5_percent.csv')
+    df = df.sample(frac=0.1)
+    df.to_csv('data/dataset_preprocessed_10_percent.csv')
+    df = df.sample(frac=0.3)
+    df.to_csv('data/dataset_preprocessed_30_percent.csv')
+    df = df.sample(frac=0.5)
+    df.to_csv('data/dataset_preprocessed_50_percent.csv')
+
 
 
 def add_semantics():
