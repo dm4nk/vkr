@@ -119,33 +119,44 @@ def get_data_frame(posts):
     return df
 
 
-def extract_hashtags(text):
-    regex = "#\S+"
-    hashtag_list = re.findall(regex, str(text))
-    hashtag_str = ' '.join(hashtag_list)
-    return hashtag_str, len(hashtag_list)
+def extract_hashtags(df):
+    regex = ' #\S+'
+    df['hashtag'] = df.text.apply(lambda txt: re.findall(regex, str(txt)))
+    df['hashtag_count'] = df.hashtag.apply(lambda lst: len(lst))
 
 
-def extract_urls(text):
+def extract_urls(df):
     regex = 'http[s]?://\S+|\S+.ru|\S+.com'
-    url_list = re.findall(regex, str(text))
-    url_str = ' '.join(url_list)
-    return url_str, len(url_list)
+    df['url'] = df.text.apply(lambda txt: re.findall(regex, str(txt)))
+    df['url_count'] = df.url.apply(lambda lst: len(lst))
 
 
-def extract_emojis(text):
-    emoji_list = list(map(lambda o: o['emoji'], emoji.emoji_list(text)))
-    return emoji_list, len(emoji_list)
+def extract_emojis(df):
+    df['emoji'] = df.text.apply(lambda txt: list(map(lambda o: o['emoji'], emoji.emoji_list(txt))))
+    df['emoji_count'] = df.emoji.apply(lambda lst: len(lst))
 
 
-def get_time_window(hour, night, morning, day):
-    if hour < night:
-        return 'night', 0
-    if hour < morning:
-        return 'morning', 1
-    if hour < day:
-        return 'day', 2
-    return 'evening', 3
+def get_time_window(df, night, morning, day):
+    def get_time(hour):
+        if hour <= night:
+            return 'night'
+        if hour <= morning:
+            return 'morning'
+        if hour <= day:
+            return 'day'
+        return 'evening'
+
+    def get_time_id(hour):
+        if hour <= night:
+            return 0
+        if hour <= morning:
+            return 1
+        if hour <= day:
+            return 2
+        return 3
+
+    df['time_window'] = df.hour.apply(lambda h: get_time(h))
+    df['time_window_id'] = df.hour.apply(lambda h: get_time_id(h))
 
 
 def run():
@@ -158,32 +169,27 @@ def run():
 def extend_dataset():
     config = read_config()
     df = pd.read_csv('data/dataset.csv')
-    df.drop(df[df.len_text == 0].index, inplace=True)
+    df.drop(df[df.len_text < 30].index, inplace=True)
     df.drop(df[df.len_text == 'len_text'].index, inplace=True)
-    df.dropna(inplace=True)
 
     domains = df.domain.unique()
     domains_dict = dict(zip(domains, range(len(domains))))
+    df['domain_id'] = df.domain.map(domains_dict)
+
     windows = config['dataset']['time']['windows']
     night, morning, day = windows['night'], windows['morning'], windows['day']
 
-    print('calculating hash_tags')
-    hash_tags = [extract_hashtags(text) for text in df.text]
-    df = df.join(pd.DataFrame(hash_tags, columns=['hashtags', 'hashtag_count']))
+    print('calculating hashtags')
+    extract_hashtags(df)
 
     print('calculating urls')
-    urls = [extract_urls(text) for text in df.text]
-    df = df.join(pd.DataFrame(urls, columns=['urls', 'url_count']))
+    extract_urls(df)
 
     print('calculating emojis')
-    emojis = [extract_emojis(text) for text in df.text]
-    df = df.join(pd.DataFrame(emojis, columns=['emoji', 'emoji_count']))
+    extract_emojis(df)
 
-    print('calculating time_windows')
-    time_windows = [get_time_window(int(hour), night, morning, day) for hour in df.hour]
-    df = df.join(pd.DataFrame(time_windows, columns=['time_window', 'time_window_id']))
-
-    df['domain_id'] = df.domain.map(domains_dict)
+    print('calculating time_window')
+    get_time_window(df, night, morning, day)
 
     print('calculating log1p')
     df['log1p_comments'] = np.log1p(df.comments)
@@ -191,40 +197,39 @@ def extend_dataset():
     df['log1p_reposts'] = np.log1p(df.reposts)
     df['log1p_views'] = np.log1p(df.views)
 
+    df.to_csv('data/dataset_extended.csv', index=False)
+
     cols_to_normalize = ['len_text', 'domain_id', 'log1p_views', 'log1p_likes', 'log1p_reposts', 'log1p_comments',
-                         'hashtag_count', 'url_count', 'time_window_id', 'dayofweek', 'attachments']
+                         'hashtag_count', 'url_count', 'emoji_count', 'time_window_id', 'dayofweek', 'attachments']
 
     print('normalizing cloumns')
     normalize_columns(df, cols_to_normalize)
 
     cols = ['text', 'len_text', 'domain', 'domain_id', 'views', 'log1p_views', 'likes', 'log1p_likes', 'reposts',
-            'log1p_reposts', 'comments', 'log1p_comments', 'is_pinned', 'post_source', 'post_source_id', 'hashtags',
-            'hashtag_count', 'urls', 'url_count', 'emoji', 'emoji_count', 'date', 'time_window', 'time_window_id',
+            'log1p_reposts', 'comments', 'log1p_comments', 'is_pinned', 'post_source', 'post_source_id', 'hashtag',
+            'hashtag_count', 'url', 'url_count', 'emoji', 'emoji_count', 'date', 'time_window', 'time_window_id',
             'year', 'month', 'dayofweek', 'hour', 'attachments'] + [col + '_normalized' for col in cols_to_normalize]
 
     df = df[cols]
+    df.info()
 
     df.to_csv('data/dataset_extended.csv', index=False)
 
 
 def cut_data():
     df = pd.read_csv('data/dataset_preprocessed.csv')
-    df = df.sample(frac=0.05)
-    df.to_csv('data/dataset_preprocessed_5_percent.csv')
-    df = df.sample(frac=0.1)
-    df.to_csv('data/dataset_preprocessed_10_percent.csv')
-    df = df.sample(frac=0.3)
-    df.to_csv('data/dataset_preprocessed_30_percent.csv')
-    df = df.sample(frac=0.5)
-    df.to_csv('data/dataset_preprocessed_50_percent.csv')
-
+    df.sample(frac=0.05).to_csv('data/dataset_preprocessed_5_percent.csv')
+    df.sample(frac=0.1).to_csv('data/dataset_preprocessed_10_percent.csv')
+    df.sample(frac=0.3).to_csv('data/dataset_preprocessed_30_percent.csv')
+    df.sample(frac=0.5).to_csv('data/dataset_preprocessed_50_percent.csv')
+    df[['text', 'preprocessed_text']].to_csv('data/dataset_text_only.csv')
 
 
 def add_semantics():
     df1 = pd.read_csv('data/dataset_extended.csv')
     cols = ['is_pinned', 'text', 'len_text', 'domain', 'domain_id', 'views', 'likes', 'reposts',
             'comments', 'log1p_views', 'log1p_likes', 'log1p_reposts', 'log1p_comments', 'post_source',
-            'post_source_id', 'hashtags', 'hashtag_count', 'urls', 'url_count', 'date', 'time_window', 'time_window_id',
+            'post_source_id', 'hashtag', 'hashtag_count', 'url', 'url_count', 'date', 'time_window', 'time_window_id',
             'year', 'month', 'dayofweek', 'hour', 'attachments']
 
     df1 = df1[cols]
@@ -243,9 +248,15 @@ def clean():
     df.to_csv('data/dataset.csv', mode='w', index=False, header=True)
 
 
+def info():
+    df = pd.read_csv('data/dataset_extended.csv')
+    df.info()
+
+
 # run()
 # extend_dataset()
 cut_data()
 # add_semantics()
-
 # clean()
+
+# info()

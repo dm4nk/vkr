@@ -52,3 +52,11 @@ executed 0.39966656764348346 minutes
 F1: 0.6681363867597592
 Precision: 0.6687112321044151
 Recall: 0.6683431955153851
+
+2023-04-18 12:23:47.605045 SVM classifier parametersFeatures 935
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.4122955441474915 minutes
+F1: 0.6681363867597592
+Precision: 0.6687112321044151
+Recall: 0.6683431955153851

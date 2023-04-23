@@ -38,7 +38,7 @@ def run():
     counter = 0
     like_to_category = {}
 
-    log_str = f'\n\n{datetime.now()} SVM classifier parameters' + \
+    log_str = f'\n\n{datetime.now()} SVM classifier parameters\n' + \
               f'Features {len(X_features)}\n' + \
               f'X_cols_add: {X_cols_add}, y_col: {y_col}\n' + \
               f'Borders: bad({bad}) | good({good}) | best({best}))\n'
