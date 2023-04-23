@@ -13,7 +13,13 @@ from sklearn.model_selection import train_test_split
 from utils import read_config
 
 
-def estimate(df: DataFrame, classifier, X_cols_add: [str], y_col: [str]):
+def estimate(df: DataFrame,
+             classifier,
+             X_cols_add: [str],
+             y_col: [str],
+             max_df: float = 0.90,
+             min_df: float = 0.005,
+             ):
     start = time()
     config = read_config()
     bad = config['classification']['ranges']['bad']
@@ -21,23 +27,21 @@ def estimate(df: DataFrame, classifier, X_cols_add: [str], y_col: [str]):
     best = config['classification']['ranges']['best']
 
     ngram_range = (config['classification']['ngram']['min'], config['classification']['ngram']['max'])
-    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.90, min_df=0.005)
+    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=max_df, min_df=min_df)
 
-    df.fillna(0, inplace=True)
     X = df[['preprocessed_text'] + X_cols_add]
     X_corpus = vectorizer.fit_transform(X['preprocessed_text']).toarray()
     X_full = np.c_[X_corpus, X[X_cols_add].values]
     X_features = vectorizer.get_feature_names_out()
-    size = df.shape[0]
-    counter = 0
-    like_to_category = {}
-
     log_str = f'\n\n{datetime.now()} {classifier.__class__.__name__} parameters\n' + \
               f'Features {len(X_features)}\n' + \
               f'X_cols_add: {X_cols_add}, y_col: {y_col}\n' + \
               f'Borders: bad({bad}) | good({good}) | best({best}))\n'
     print(log_str)
 
+    counter = 0
+    like_to_category = {}
+    size = df.shape[0]
     for like, count in df.groupby(y_col)[y_col].count().items():
         counter += count
         if counter / size < bad:
@@ -51,7 +55,7 @@ def estimate(df: DataFrame, classifier, X_cols_add: [str], y_col: [str]):
 
     X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.15, random_state=2)
 
-    classifier.fit(X_train, y_train, epochs=3, batch_size=1, verbose=2)
+    classifier.fit(X_train, y_train)
     y_pred = classifier.predict(X_test)
 
     f1 = f1_score(y_test, y_pred, average='macro')
