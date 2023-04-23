@@ -238,9 +238,11 @@ def add_semantics():
 
 
 def clean():
-    df = pd.read_csv('data/dataset.csv')
-    df.drop(df[df.domain == '1tvnews'].index, inplace=True)
-    df.to_csv('data/dataset.csv', mode='w', index=False, header=True)
+    df = pd.read_csv('data/dataset_preprocessed.csv')
+    df.drop(df[df.preprocessed_text.str.count(' ') + 1 < 2].index, inplace=True)
+    df = df[df.preprocessed_text.notna()]
+    print(df.info())
+    df.to_csv('data/dataset_preprocessed.csv', mode='w')
 
 
 # run()
