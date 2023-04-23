@@ -37,8 +37,8 @@ def run():
         .progress_apply(lambda lst: [num2words(word, lang='ru') if word.isdecimal() else word for word in lst]) \
         .progress_apply(lambda lst: " ".join(lst))
 
-    print(f'{"=" * 20}====Raw====={"=" * 20}\n\n{df["text"][0]}\n\n'
-          f'{"=" * 20}Preprocessed{"=" * 20}\n\n{df["preprocessed_text"][0]}')
+    print(f'{"=" * 15}====Raw====={"=" * 15}\n\n{df["text"][0]}\n\n'
+          f'{"=" * 15}Preprocessed{"=" * 15}\n\n{df["preprocessed_text"][0]}')
 
     df.preprocessed_text.dropna(inplace=True)
     print(f'Size after second drop: {df.shape[0]}')

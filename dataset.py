@@ -250,15 +250,8 @@ def clean():
     df.to_csv('data/dataset_preprocessed.csv', mode='w')
 
 
-def info():
-    df = pd.read_csv('data/dataset_extended.csv')
-    df.info()
-
-
 # run()
 # extend_dataset()
 cut_data()
 # add_semantics()
 # clean()
-
-# info()

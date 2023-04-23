@@ -1,23 +1,26 @@
-# Libraries
-
-import matplotlib.pyplot as plt
 import pandas as pd
-import torch
+from keras.layers import Dense, LSTM
+from keras.models import Sequential
 
-# Preliminaries
+from classifiers.base_classifier import estimate
 
-from torchtext.data import Field, TabularDataset, BucketIterator
 
-# Models
+def run():
+    X_cols_add = [col + '_normalized' for col in
+                  ['len_text', 'hashtag_count', 'url_count', 'emoji_count', 'time_window_id', 'dayofweek',
+                   'attachments']]
 
-import torch.nn as nn
-from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
+    y_col = 'log1p_likes_normalized'
 
-# Training
+    df = pd.read_csv('data/dataset_preprocessed_5_percent.csv')
 
-import torch.optim as optim
+    lstm_model = Sequential()
+    lstm_model.add(LSTM(units=50, return_sequences=True, input_shape=(993, 1)))
+    lstm_model.add(LSTM(units=50))
+    lstm_model.add(Dense(1))
+    lstm_model.compile(loss='mean_squared_error', optimizer='adadelta')
 
-# Evaluation
+    estimate(df, lstm_model, X_cols_add, y_col)
 
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-import seaborn as sns
+
+run()

@@ -1,34 +1,28 @@
+import re
 from datetime import datetime
 from time import time
 
 import numpy as np
-import pandas as pd
 from matplotlib import pyplot as plt
+from pandas import DataFrame
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
-from sklearn.svm import LinearSVC
 
 from utils import read_config
 
 
-def run():
+def estimate(df: DataFrame, classifier, X_cols_add: [str], y_col: [str]):
     start = time()
-    X_cols_add = [col + '_normalized' for col in
-                  ['len_text', 'hashtag_count', 'url_count', 'time_window_id', 'dayofweek', 'attachments']]
-
-    y_col = 'log1p_likes_normalized'
-
     config = read_config()
     bad = config['classification']['ranges']['bad']
     good = config['classification']['ranges']['good']
     best = config['classification']['ranges']['best']
 
     ngram_range = (config['classification']['ngram']['min'], config['classification']['ngram']['max'])
-    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.80, min_df=0.005)
+    vectorizer = TfidfVectorizer(ngram_range=ngram_range, max_df=0.90, min_df=0.005)
 
-    df = pd.read_csv('data/dataset_preprocessed.csv')
     df.fillna(0, inplace=True)
     X = df[['preprocessed_text'] + X_cols_add]
     X_corpus = vectorizer.fit_transform(X['preprocessed_text']).toarray()
@@ -38,7 +32,7 @@ def run():
     counter = 0
     like_to_category = {}
 
-    log_str = f'\n\n{datetime.now()} SVM classifier parameters\n' + \
+    log_str = f'\n\n{datetime.now()} {classifier.__class__.__name__} parameters\n' + \
               f'Features {len(X_features)}\n' + \
               f'X_cols_add: {X_cols_add}, y_col: {y_col}\n' + \
               f'Borders: bad({bad}) | good({good}) | best({best}))\n'
@@ -55,11 +49,9 @@ def run():
 
     y = df[y_col].apply(lambda like_row: like_to_category.get(like_row))
 
-    X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.15, random_state=1)
+    X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.15, random_state=2)
 
-    classifier = LinearSVC(C=0.025, verbose=True, dual=False, max_iter=1700)
-    classifier.fit(X_train, y_train)
-
+    classifier.fit(X_train, y_train, epochs=3, batch_size=1, verbose=2)
     y_pred = classifier.predict(X_test)
 
     f1 = f1_score(y_test, y_pred, average='macro')
@@ -76,10 +68,8 @@ def run():
                       f'F1: {f1}\nPrecision: {precision}\nRecall: {recall}'
 
     print(log_str_results)
-    with open('logs/svm.txt', 'a') as classifier_log:
+    with open(f'logs/{re.sub(r"(?<!^)(?=[A-Z])", "_", classifier.__class__.__name__).lower()}.txt',
+              'a') as classifier_log:
         classifier_log.write(log_str + log_str_results)
 
     plt.show()
-
-
-run()
