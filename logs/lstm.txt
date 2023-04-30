@@ -1,9 +1,0 @@
-
-
-2023-04-23 21:54:43.915800 LSTM parameters
-Features 322985
-X_cols_add: [], y_col: log1p_likes_normalized
-Borders: bad(0.5) | good(0) | best(0.5))
-executed 32.74366141557694 minutes
-Loss: 0.5760297179222107
-Accuracy: 0.7020929455757141
