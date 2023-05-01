@@ -2,11 +2,12 @@ from datetime import datetime
 from time import time
 
 import numpy as np
+import pandas as pd
 from matplotlib import pyplot as plt
 from pandas import DataFrame
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_score
-from sklearn.metrics import f1_score, precision_score, recall_score
+from sklearn.linear_model import RidgeCV
+from sklearn.metrics import make_scorer
 from sklearn.model_selection import train_test_split
 
 from utils import read_config
@@ -39,41 +40,19 @@ def estimate(df: DataFrame,
               f'Borders: bad({bad}) | good({good}) | best({best}))\n'
     print(log_str)
 
-    counter = 0
-    like_to_category = {}
-    size = df.shape[0]
-    for like, count in df.groupby(y_col)[y_col].count().items():
-        counter += count
-        if counter / size < bad:
-            like_to_category[like] = 0
-        # elif counter / size < bad + good:
-        #     like_to_category[like] = 0.5
-        else:
-            like_to_category[like] = 1
-
-    y = df[y_col].apply(lambda like_row: like_to_category.get(like_row))
+    y = df[y_col]
 
     X_train, X_test, y_train, y_test = train_test_split(X_full, y, test_size=0.15)
 
     classifier.fit(X_train, y_train)
     y_pred = classifier.predict(X_test)
 
-    f1 = f1_score(y_test, y_pred, average='macro')
-    precision = precision_score(y_test, y_pred, average='macro')
-    recall = recall_score(y_test, y_pred, average="macro")
-    accuracy = accuracy_score(y_test, y_pred)
-
-    cm = confusion_matrix(y_test, y_pred, labels=classifier.classes_)
-    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classifier.classes_)
-    disp.plot()
+    plt.scatter(y_test, y_pred)
+    plt.scatter(y_test, y_test)
 
     end = time()
 
-    log_str_results = f'executed {(end - start) / 60:.2f} minutes\n' + \
-                      f'F1: {f1 * 100:.2f}\n' \
-                      f'Precision: {precision * 100:.2f}\n' \
-                      f'Recall: {recall * 100:.2f}\n' \
-                      f'Accuracy: {accuracy * 100:.2f}'
+    log_str_results = f'executed {(end - start) / 60:.2f} minutes\n'
 
     print(log_str_results)
     with open(f'logs/{name}.txt', 'a') as classifier_log:
@@ -82,3 +61,20 @@ def estimate(df: DataFrame,
     plt.show()
 
     return log_str_results
+
+
+def run(X_cols_add: [str] = [],
+        y_col: str = 'log1p_likes_normalized',
+        df=pd.read_csv('data/dataset_preprocessed_10_percent.csv'),
+        ):
+    def grade_scorer(y, y_pred, threshold: float = 0.001):
+        condition = ((y < threshold) & (y < threshold)) | ((y >= threshold) & (y_pred >= threshold))
+        coefs = np.where(condition, 0, 1)
+        loss = np.abs(y - y_pred) * coefs
+        return 1 / (loss.mean() + 1)
+
+    classifier = RidgeCV(alphas=np.logspace(0, 1, num=10))
+    return estimate(df, classifier, X_cols_add, y_col, 'ridge')
+
+
+run()

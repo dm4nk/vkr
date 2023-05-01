@@ -9,5 +9,5 @@ def run(X_cols_add: [str] = [],
         df=pd.read_csv('data/dataset_preprocessed.csv'),
         ):
 
-    classifier = SVC(C=0.3, kernel='poly', degree=2, max_iter=5000, cache_size=5012)
-    return estimate(df, classifier, X_cols_add, y_col, 'svc_poly')
+    classifier = SVC(C=11008267, kernel='rbf', gamma=1.12, max_iter=5000, cache_size=5012)
+    return estimate(df, classifier, X_cols_add, y_col, 'rbf_svm')

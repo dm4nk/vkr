@@ -1,7 +1,6 @@
 from datetime import datetime
 from time import time
 
-import numpy as np
 import pandas as pd
 from keras.callbacks import EarlyStopping
 from keras.layers import LSTM, Dense, Dropout, Input, Embedding
@@ -102,6 +101,3 @@ def run(X_cols_add: [str] = [],
     print(log_str_results)
     with open(f'logs/lstm.txt', 'a') as classifier_log:
         classifier_log.write(log_str + log_str_results)
-
-
-run()

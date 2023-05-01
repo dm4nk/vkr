@@ -1,0 +1,1031 @@
+
+
+2023-05-01 02:43:59.149630 naive_bayes parameters
+Features 973
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.50 minutes
+F1: 63.91
+Precision: 64.15
+Recall: 64.01
+Accuracy: 63.99
+
+2023-05-01 11:13:27.504126 naive_bayes parameters
+Features 971
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.93
+Precision: 64.13
+Recall: 63.99
+Accuracy: 64.02
+
+2023-05-01 11:13:35.786127 naive_bayes parameters
+Features 971
+X_cols_add: [], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 62.31
+Precision: 62.31
+Recall: 62.31
+Accuracy: 62.31
+
+2023-05-01 11:13:44.028126 naive_bayes parameters
+Features 971
+X_cols_add: [], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.94
+Precision: 63.99
+Recall: 63.96
+Accuracy: 63.96
+
+2023-05-01 11:13:52.328159 naive_bayes parameters
+Features 971
+X_cols_add: [], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 64.09
+Precision: 64.16
+Recall: 64.14
+Accuracy: 64.09
+
+2023-05-01 11:14:00.599156 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 64.10
+Precision: 64.31
+Recall: 64.20
+Accuracy: 64.16
+
+2023-05-01 11:14:08.949126 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 62.37
+Precision: 62.37
+Recall: 62.37
+Accuracy: 62.37
+
+2023-05-01 11:14:17.296126 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.49
+Precision: 63.54
+Recall: 63.51
+Accuracy: 63.50
+
+2023-05-01 11:14:25.648160 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.83
+Precision: 63.92
+Recall: 63.89
+Accuracy: 63.84
+
+2023-05-01 11:14:33.951125 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 64.32
+Precision: 64.58
+Recall: 64.44
+Accuracy: 64.39
+
+2023-05-01 11:14:42.277406 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 62.34
+Precision: 62.34
+Recall: 62.34
+Accuracy: 62.34
+
+2023-05-01 11:14:50.546396 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.14 minutes
+F1: 63.58
+Precision: 63.63
+Recall: 63.60
+Accuracy: 63.60
+
+2023-05-01 11:14:59.038396 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.14 minutes
+F1: 63.71
+Precision: 63.78
+Recall: 63.76
+Accuracy: 63.71
+
+2023-05-01 11:15:07.449404 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 64.07
+Precision: 64.28
+Recall: 64.17
+Accuracy: 64.12
+
+2023-05-01 11:15:15.811404 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 62.63
+Precision: 62.63
+Recall: 62.63
+Accuracy: 62.64
+
+2023-05-01 11:15:24.212366 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.82
+Precision: 63.84
+Recall: 63.84
+Accuracy: 63.83
+
+2023-05-01 11:15:32.551366 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.76
+Precision: 63.83
+Recall: 63.80
+Accuracy: 63.77
+
+2023-05-01 11:15:40.894369 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.60
+Precision: 63.74
+Recall: 63.65
+Accuracy: 63.68
+
+2023-05-01 11:15:49.207252 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 62.27
+Precision: 62.28
+Recall: 62.27
+Accuracy: 62.28
+
+2023-05-01 11:15:57.527252 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.27
+Precision: 63.32
+Recall: 63.29
+Accuracy: 63.29
+
+2023-05-01 11:16:05.912246 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.87
+Precision: 63.99
+Recall: 63.96
+Accuracy: 63.88
+
+2023-05-01 11:16:14.234219 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 64.06
+Precision: 64.27
+Recall: 64.14
+Accuracy: 64.15
+
+2023-05-01 11:16:22.516248 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 62.64
+Precision: 62.65
+Recall: 62.64
+Accuracy: 62.64
+
+2023-05-01 11:16:30.842258 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.90
+Precision: 63.94
+Recall: 63.92
+Accuracy: 63.92
+
+2023-05-01 11:16:39.258246 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.61
+Precision: 63.73
+Recall: 63.69
+Accuracy: 63.62
+
+2023-05-01 11:16:47.581249 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.71
+Precision: 63.90
+Recall: 63.79
+Accuracy: 63.78
+
+2023-05-01 11:16:55.927249 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 62.97
+Precision: 62.97
+Recall: 62.97
+Accuracy: 62.97
+
+2023-05-01 11:17:04.251246 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.73
+Precision: 63.76
+Recall: 63.75
+Accuracy: 63.74
+
+2023-05-01 11:17:12.666247 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.90
+Precision: 64.02
+Recall: 63.98
+Accuracy: 63.92
+
+2023-05-01 11:17:20.963245 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 64.31
+Precision: 64.49
+Recall: 64.36
+Accuracy: 64.41
+
+2023-05-01 11:17:29.307244 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 62.62
+Precision: 62.63
+Recall: 62.62
+Accuracy: 62.63
+
+2023-05-01 11:17:37.588216 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 63.87
+Precision: 63.91
+Recall: 63.89
+Accuracy: 63.87
+
+2023-05-01 11:17:45.991244 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.13 minutes
+F1: 64.02
+Precision: 64.10
+Recall: 64.07
+Accuracy: 64.02
+
+2023-05-01 12:04:31.316139 naive_bayes parameters
+Features 973
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.41 minutes
+F1: 64.06
+Precision: 64.28
+Recall: 64.14
+Accuracy: 64.16
+
+2023-05-01 12:06:14.618289 naive_bayes parameters
+Features 973
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.31 minutes
+F1: 63.96
+Precision: 64.18
+Recall: 64.03
+Accuracy: 64.06
+
+2023-05-01 12:07:52.825455 naive_bayes parameters
+Features 973
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.36 minutes
+F1: 63.97
+Precision: 64.20
+Recall: 64.06
+Accuracy: 64.06
+
+2023-05-01 12:15:14.374398 naive_bayes parameters
+Features 973
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.32 minutes
+F1: 63.97
+Precision: 64.25
+Recall: 64.09
+Accuracy: 64.06
+
+2023-05-01 12:37:04.951024 naive_bayes parameters
+Features 986
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.11
+Precision: 62.28
+Recall: 62.18
+Accuracy: 62.20
+
+2023-05-01 12:37:05.809027 naive_bayes parameters
+Features 986
+X_cols_add: [], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 59.95
+Precision: 59.97
+Recall: 59.98
+Accuracy: 59.97
+
+2023-05-01 12:37:06.699024 naive_bayes parameters
+Features 986
+X_cols_add: [], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 61.27
+Precision: 61.31
+Recall: 61.28
+Accuracy: 61.33
+
+2023-05-01 12:37:07.586024 naive_bayes parameters
+Features 986
+X_cols_add: [], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.66
+Precision: 63.13
+Recall: 63.01
+Accuracy: 62.69
+
+2023-05-01 12:37:08.462024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.04
+Precision: 62.39
+Recall: 62.17
+Accuracy: 62.24
+
+2023-05-01 12:37:09.340024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 59.72
+Precision: 59.72
+Recall: 59.72
+Accuracy: 59.72
+
+2023-05-01 12:37:10.212025 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 59.70
+Precision: 59.86
+Recall: 59.81
+Accuracy: 59.72
+
+2023-05-01 12:37:11.093025 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.08
+Precision: 62.30
+Recall: 62.22
+Accuracy: 62.11
+
+2023-05-01 12:37:11.979024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.12
+Precision: 62.44
+Recall: 62.30
+Accuracy: 62.20
+
+2023-05-01 12:37:12.857993 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 59.48
+Precision: 59.50
+Recall: 59.53
+Accuracy: 59.51
+
+2023-05-01 12:37:13.748993 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 61.27
+Precision: 61.57
+Recall: 61.50
+Accuracy: 61.29
+
+2023-05-01 12:37:14.636025 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 60.69
+Precision: 60.88
+Recall: 60.83
+Accuracy: 60.71
+
+2023-05-01 12:37:15.525996 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 63.01
+Precision: 63.20
+Recall: 63.08
+Accuracy: 63.10
+
+2023-05-01 12:37:16.384025 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 61.08
+Precision: 61.14
+Recall: 61.15
+Accuracy: 61.08
+
+2023-05-01 12:37:17.246994 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.09
+Precision: 62.28
+Recall: 62.16
+Accuracy: 62.20
+
+2023-05-01 12:37:18.128994 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 63.40
+Precision: 63.65
+Recall: 63.52
+Accuracy: 63.48
+
+2023-05-01 12:37:18.995995 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.00
+Precision: 62.10
+Recall: 62.03
+Accuracy: 62.07
+
+2023-05-01 12:37:19.881995 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 59.09
+Precision: 59.13
+Recall: 59.11
+Accuracy: 59.10
+
+2023-05-01 12:37:20.758008 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 61.55
+Precision: 61.78
+Recall: 61.70
+Accuracy: 61.58
+
+2023-05-01 12:37:21.637024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.77
+Precision: 63.08
+Recall: 62.97
+Accuracy: 62.81
+
+2023-05-01 12:37:22.499996 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 63.14
+Precision: 63.57
+Recall: 63.37
+Accuracy: 63.23
+
+2023-05-01 12:37:23.358995 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 60.21
+Precision: 60.22
+Recall: 60.22
+Accuracy: 60.21
+
+2023-05-01 12:37:24.224993 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 61.73
+Precision: 61.78
+Recall: 61.76
+Accuracy: 61.74
+
+2023-05-01 12:37:25.095996 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 60.69
+Precision: 60.83
+Recall: 60.76
+Accuracy: 60.75
+
+2023-05-01 12:37:25.964024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.67
+Precision: 62.78
+Recall: 62.68
+Accuracy: 62.81
+
+2023-05-01 12:37:26.842025 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 60.58
+Precision: 60.64
+Recall: 60.67
+Accuracy: 60.59
+
+2023-05-01 12:37:27.723024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 60.81
+Precision: 60.93
+Recall: 60.89
+Accuracy: 60.83
+
+2023-05-01 12:37:28.591024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 61.78
+Precision: 61.90
+Recall: 61.83
+Accuracy: 61.82
+
+2023-05-01 12:37:29.429024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.47
+Precision: 62.67
+Recall: 62.62
+Accuracy: 62.48
+
+2023-05-01 12:37:30.276024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 59.33
+Precision: 59.33
+Recall: 59.34
+Accuracy: 59.35
+
+2023-05-01 12:37:31.134024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 60.15
+Precision: 60.27
+Recall: 60.18
+Accuracy: 60.30
+
+2023-05-01 12:37:32.003024 naive_bayes parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.01 minutes
+F1: 62.81
+Precision: 63.01
+Recall: 62.97
+Accuracy: 62.81
+
+2023-05-01 13:42:48.955207 naive_bayes parameters
+Features 971
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.30 minutes
+F1: 64.01
+Precision: 64.25
+Recall: 64.09
+Accuracy: 64.11
+
+2023-05-01 13:43:07.289205 naive_bayes parameters
+Features 971
+X_cols_add: [], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.22 minutes
+F1: 62.42
+Precision: 62.42
+Recall: 62.42
+Accuracy: 62.43
+
+2023-05-01 13:43:20.347204 naive_bayes parameters
+Features 971
+X_cols_add: [], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.21 minutes
+F1: 63.31
+Precision: 63.33
+Recall: 63.32
+Accuracy: 63.31
+
+2023-05-01 13:43:32.829204 naive_bayes parameters
+Features 971
+X_cols_add: [], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.19 minutes
+F1: 63.81
+Precision: 63.89
+Recall: 63.88
+Accuracy: 63.82
+
+2023-05-01 13:43:44.864205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.18 minutes
+F1: 64.51
+Precision: 64.70
+Recall: 64.58
+Accuracy: 64.58
+
+2023-05-01 13:43:56.855206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.23 minutes
+F1: 62.28
+Precision: 62.28
+Recall: 62.28
+Accuracy: 62.29
+
+2023-05-01 13:44:11.350207 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 63.35
+Precision: 63.38
+Recall: 63.37
+Accuracy: 63.35
+
+2023-05-01 13:44:26.170205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 63.50
+Precision: 63.58
+Recall: 63.55
+Accuracy: 63.52
+
+2023-05-01 13:44:40.734206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.23 minutes
+F1: 64.08
+Precision: 64.31
+Recall: 64.17
+Accuracy: 64.16
+
+2023-05-01 13:44:55.177206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.23 minutes
+F1: 62.19
+Precision: 62.20
+Recall: 62.19
+Accuracy: 62.19
+
+2023-05-01 13:45:10.170206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 63.72
+Precision: 63.74
+Recall: 63.73
+Accuracy: 63.73
+
+2023-05-01 13:45:24.900205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 63.79
+Precision: 63.88
+Recall: 63.87
+Accuracy: 63.79
+
+2023-05-01 13:45:39.516206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.25 minutes
+F1: 64.24
+Precision: 64.47
+Recall: 64.33
+Accuracy: 64.32
+
+2023-05-01 13:45:54.989206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 62.49
+Precision: 62.50
+Recall: 62.49
+Accuracy: 62.50
+
+2023-05-01 13:46:09.731205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 64.16
+Precision: 64.19
+Recall: 64.17
+Accuracy: 64.18
+
+2023-05-01 13:46:24.408204 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.22 minutes
+F1: 63.62
+Precision: 63.70
+Recall: 63.69
+Accuracy: 63.62
+
+2023-05-01 13:46:36.561205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.19 minutes
+F1: 64.12
+Precision: 64.32
+Recall: 64.21
+Accuracy: 64.18
+
+2023-05-01 13:46:48.656204 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.19 minutes
+F1: 63.04
+Precision: 63.05
+Recall: 63.05
+Accuracy: 63.04
+
+2023-05-01 13:47:00.744204 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.20 minutes
+F1: 63.46
+Precision: 63.48
+Recall: 63.47
+Accuracy: 63.48
+
+2023-05-01 13:47:13.745205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.23 minutes
+F1: 64.04
+Precision: 64.14
+Recall: 64.11
+Accuracy: 64.04
+
+2023-05-01 13:47:28.554205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.23 minutes
+F1: 64.47
+Precision: 64.69
+Recall: 64.55
+Accuracy: 64.56
+
+2023-05-01 13:47:43.204204 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 62.14
+Precision: 62.15
+Recall: 62.14
+Accuracy: 62.16
+
+2023-05-01 13:47:57.968206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 64.43
+Precision: 64.46
+Recall: 64.44
+Accuracy: 64.44
+
+2023-05-01 13:48:12.670207 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 63.74
+Precision: 63.82
+Recall: 63.80
+Accuracy: 63.75
+
+2023-05-01 13:48:27.252205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 64.19
+Precision: 64.37
+Recall: 64.25
+Accuracy: 64.27
+
+2023-05-01 13:48:42.004206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.23 minutes
+F1: 62.89
+Precision: 62.91
+Recall: 62.90
+Accuracy: 62.90
+
+2023-05-01 13:48:56.539206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 64.05
+Precision: 64.09
+Recall: 64.06
+Accuracy: 64.07
+
+2023-05-01 13:49:11.561206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.24 minutes
+F1: 63.49
+Precision: 63.56
+Recall: 63.55
+Accuracy: 63.49
+
+2023-05-01 13:49:26.267206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.23 minutes
+F1: 63.65
+Precision: 63.93
+Recall: 63.77
+Accuracy: 63.75
+
+2023-05-01 13:49:40.927205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.22 minutes
+F1: 62.70
+Precision: 62.70
+Recall: 62.70
+Accuracy: 62.70
+
+2023-05-01 13:49:53.317205 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.20 minutes
+F1: 64.18
+Precision: 64.20
+Recall: 64.19
+Accuracy: 64.20
+
+2023-05-01 13:50:05.548206 naive_bayes parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.20 minutes
+F1: 63.99
+Precision: 64.07
+Recall: 64.04
+Accuracy: 64.01
+
+2023-05-08 15:31:13.161216 naive_bayes parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.19 minutes
+F1: 62.34
+Precision: 62.49
+Recall: 62.41
+Accuracy: 62.40
+
+2023-05-08 15:32:35.268822 naive_bayes parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.20 minutes
+F1: 62.95
+Precision: 63.10
+Recall: 63.03
+Accuracy: 62.99

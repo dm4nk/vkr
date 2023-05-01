@@ -10,7 +10,4 @@ def run(X_cols_add: [str] = [],
         ):
 
     classifier = GaussianNB()
-    estimate(df, classifier, X_cols_add, y_col, 'naive_bayes')
-
-
-run()
+    return estimate(df, classifier, X_cols_add, y_col, 'naive_bayes')

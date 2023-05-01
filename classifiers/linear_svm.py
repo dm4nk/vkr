@@ -9,7 +9,5 @@ def run(X_cols_add: [str] = [],
         df=pd.read_csv('data/dataset_preprocessed.csv'),
         ):
     classifier = LinearSVC(C=0.025, verbose=True, dual=False, max_iter=1700)
-    estimate(df, classifier, X_cols_add, y_col, 'svc_linear')
+    return estimate(df, classifier, X_cols_add, y_col, 'svc_linear')
 
-
-run()
