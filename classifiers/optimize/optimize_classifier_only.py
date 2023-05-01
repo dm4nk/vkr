@@ -10,11 +10,9 @@ from utils import read_config
 
 def objective(trial, X, y):
     c = trial.suggest_float('svc_c', 1e-10, 1e10, log=True)
-    max_iter = trial.suggest_int('max_iter', 1000, 5000, log=True)
-    degree = trial.suggest_int('degree', 1, 5)
-    cache_size = trial.suggest_int('cache_size', 200, 8000)
+    gamma = trial.suggest_float('gamma', 0.6, 1.2)
 
-    clf = SVC(C=c, kernel='poly', degree=degree, max_iter=max_iter, cache_size=cache_size)
+    clf = SVC(C=c, kernel='rbf', gamma=gamma, max_iter=4000, cache_size=5000)
 
     return cross_val_score(clf, X, y, n_jobs=-1, cv=5).mean()
 

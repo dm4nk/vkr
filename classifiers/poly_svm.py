@@ -10,7 +10,4 @@ def run(X_cols_add: [str] = [],
         ):
 
     classifier = SVC(C=0.3, kernel='poly', degree=2, max_iter=5000, cache_size=5012)
-    estimate(df, classifier, X_cols_add, y_col, 'svc_poly')
-
-
-run()
+    return estimate(df, classifier, X_cols_add, y_col, 'svc_poly')

@@ -35,7 +35,7 @@ def estimate(df: DataFrame,
     X_features = vectorizer.get_feature_names_out()
     log_str = f'\n\n{datetime.now()} {name} parameters\n' + \
               f'Features {len(X_features)}\n' + \
-              f'X_cols_add: {X_cols_add}, y_col: {y_col}\n' + \
+              f'X_cols_add: {str(X_cols_add)}, y_col: {y_col}\n' + \
               f'Borders: bad({bad}) | good({good}) | best({best}))\n'
     print(log_str)
 
@@ -63,9 +63,9 @@ def estimate(df: DataFrame,
     recall = recall_score(y_test, y_pred, average="macro")
     accuracy = accuracy_score(y_test, y_pred)
 
-    cm = confusion_matrix(y_test, y_pred, labels=classifier.classes_)
-    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classifier.classes_)
-    disp.plot()
+    # cm = confusion_matrix(y_test, y_pred, labels=classifier.classes_)
+    # disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classifier.classes_)
+    # disp.plot()
 
     end = time()
 
@@ -79,4 +79,6 @@ def estimate(df: DataFrame,
     with open(f'logs/{name}.txt', 'a') as classifier_log:
         classifier_log.write(log_str + log_str_results)
 
-    plt.show()
+    # plt.show()
+
+    return log_str_results

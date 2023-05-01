@@ -18,7 +18,4 @@ def run(X_cols_add: [str] = [],
                                         n_jobs=2,
                                         verbose=True)
 
-    estimate(df, classifier, X_cols_add, y_col, 'random_forest')
-
-
-run()
+    return estimate(df, classifier, X_cols_add, y_col, 'random_forest')
