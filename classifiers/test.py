@@ -1,6 +1,6 @@
 import pandas as pd
 
-from classifiers import linear_svm, naive_bayes, poly_svm, random_forest
+from classifiers import naive_bayes, poly_svm
 
 X_cols_add = [col + '_normalized' for col in
               ['len_text', 'hashtag_count', 'url_count', 'emoji_count', 'time_window_id', 'dayofweek', 'attachments',

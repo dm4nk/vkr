@@ -1,5 +1,6 @@
-import aspose.words as aw
 import re
+
+import aspose.words as aw
 import pandas as pd
 
 doc = aw.Document()

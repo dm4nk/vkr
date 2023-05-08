@@ -1,6 +1,6 @@
 import pandas as pd
 
-from classifiers import linear_svm, naive_bayes, poly_svm, random_forest, rbf_svm, xbgoost_forest
+from classifiers import rbf_svm, xbgoost_forest
 
 X_cols_add = [col + '_normalized' for col in
               ['len_text', 'hashtag_count', 'url_count', 'emoji_count', 'time_window_id', 'dayofweek', 'attachments',

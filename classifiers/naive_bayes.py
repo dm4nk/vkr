@@ -8,6 +8,5 @@ def run(X_cols_add: [str] = [],
         y_col: str = 'log1p_likes_normalized',
         df=pd.read_csv('data/dataset_preprocessed.csv'),
         ):
-
     classifier = GaussianNB()
     return estimate(df, classifier, X_cols_add, y_col, 'naive_bayes')

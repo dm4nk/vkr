@@ -13,10 +13,10 @@ dataset:
   vk:
     sleep: 0.2
     domains:
-#      - lentach
-#      - ria
-#      - vesti
-#      - rentvchannel
+      #      - lentach
+      #      - ria
+      #      - vesti
+      #      - rentvchannel
       - 1tvnews
       - inside__rus
       - news_first

@@ -10,4 +10,3 @@ def run(X_cols_add: [str] = [],
         ):
     classifier = LinearSVC(C=0.025, verbose=True, dual=False, max_iter=1700)
     return estimate(df, classifier, X_cols_add, y_col, 'svc_linear')
-

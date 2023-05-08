@@ -7,7 +7,6 @@ from matplotlib import pyplot as plt
 from pandas import DataFrame
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import RidgeCV
-from sklearn.metrics import make_scorer
 from sklearn.model_selection import train_test_split
 
 from utils import read_config
