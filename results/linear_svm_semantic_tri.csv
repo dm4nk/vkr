@@ -1,0 +1,22 @@
+,0,1,2,3,4,5
+0,N/A,"['neutral', 'positive', 'negative', 'skip', 'speech']",N/A,N/A,N/A,N/A
+1,log1p_likes_normalized,"executed 0.42 minutes
+F1: 64.24
+Precision: 64.31
+Recall: 64.26
+Accuracy: 64.26",N/A,N/A,N/A,N/A
+2,log1p_comments_normalized,"executed 0.41 minutes
+F1: 63.79
+Precision: 63.80
+Recall: 63.80
+Accuracy: 63.79",N/A,N/A,N/A,N/A
+3,log1p_views_normalized,"executed 0.44 minutes
+F1: 64.47
+Precision: 64.49
+Recall: 64.48
+Accuracy: 64.47",N/A,N/A,N/A,N/A
+4,log1p_reposts_normalized,"executed 0.42 minutes
+F1: 64.06
+Precision: 64.10
+Recall: 64.06
+Accuracy: 64.11",N/A,N/A,N/A,N/A

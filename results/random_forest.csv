@@ -1,0 +1,137 @@
+,0,1,2,3
+0,"executed 41.36 minutes
+F1: 69.82
+Precision: 69.84
+Recall: 69.84
+Accuracy: 69.83","executed 17.20 minutes
+F1: 67.72
+Precision: 67.72
+Recall: 67.72
+Accuracy: 67.72","executed 16.93 minutes
+F1: 70.25
+Precision: 70.25
+Recall: 70.26
+Accuracy: 70.25","executed 17.74 minutes
+F1: 67.87
+Precision: 67.90
+Recall: 67.87
+Accuracy: 67.91"
+1,"executed 71.34 minutes
+F1: 70.95
+Precision: 70.95
+Recall: 70.95
+Accuracy: 70.95","executed 12.22 minutes
+F1: 69.47
+Precision: 69.50
+Recall: 69.47
+Accuracy: 69.48","executed 11.17 minutes
+F1: 72.85
+Precision: 72.86
+Recall: 72.85
+Accuracy: 72.85","executed 12.97 minutes
+F1: 69.57
+Precision: 69.61
+Recall: 69.57
+Accuracy: 69.61"
+2,"executed 11.51 minutes
+F1: 71.44
+Precision: 71.45
+Recall: 71.45
+Accuracy: 71.44","executed 11.60 minutes
+F1: 69.45
+Precision: 69.47
+Recall: 69.45
+Accuracy: 69.46","executed 10.90 minutes
+F1: 73.02
+Precision: 73.03
+Recall: 73.03
+Accuracy: 73.02","executed 12.75 minutes
+F1: 69.60
+Precision: 69.64
+Recall: 69.60
+Accuracy: 69.66"
+3,"executed 11.60 minutes
+F1: 72.92
+Precision: 73.07
+Recall: 72.96
+Accuracy: 72.95","executed 11.18 minutes
+F1: 70.86
+Precision: 70.97
+Recall: 70.89
+Accuracy: 70.90","executed 10.61 minutes
+F1: 74.64
+Precision: 74.65
+Recall: 74.64
+Accuracy: 74.64","executed 12.65 minutes
+F1: 71.59
+Precision: 71.72
+Recall: 71.59
+Accuracy: 71.65"
+4,"executed 11.27 minutes
+F1: 73.44
+Precision: 73.62
+Recall: 73.48
+Accuracy: 73.48","executed 10.86 minutes
+F1: 71.11
+Precision: 71.19
+Recall: 71.13
+Accuracy: 71.13","executed 10.23 minutes
+F1: 75.32
+Precision: 75.33
+Recall: 75.32
+Accuracy: 75.32","executed 11.58 minutes
+F1: 71.47
+Precision: 71.57
+Recall: 71.46
+Accuracy: 71.57"
+5,"executed 10.57 minutes
+F1: 73.42
+Precision: 73.58
+Recall: 73.46
+Accuracy: 73.46","executed 10.36 minutes
+F1: 71.03
+Precision: 71.12
+Recall: 71.04
+Accuracy: 71.06","executed 9.39 minutes
+F1: 75.63
+Precision: 75.66
+Recall: 75.65
+Accuracy: 75.63","executed 11.10 minutes
+F1: 72.08
+Precision: 72.17
+Recall: 72.08
+Accuracy: 72.12"
+6,"executed 10.18 minutes
+F1: 73.65
+Precision: 73.86
+Recall: 73.68
+Accuracy: 73.72","executed 10.16 minutes
+F1: 71.16
+Precision: 71.24
+Recall: 71.17
+Accuracy: 71.19","executed 9.09 minutes
+F1: 75.23
+Precision: 75.25
+Recall: 75.24
+Accuracy: 75.23","executed 11.02 minutes
+F1: 72.03
+Precision: 72.18
+Recall: 72.03
+Accuracy: 72.10"
+7,"executed 9.80 minutes
+F1: 73.96
+Precision: 74.12
+Recall: 73.99
+Accuracy: 73.99","executed 9.82 minutes
+F1: 71.20
+Precision: 71.27
+Recall: 71.22
+Accuracy: 71.22","executed 9.30 minutes
+F1: 76.00
+Precision: 76.02
+Recall: 76.01
+Accuracy: 76.01","executed 10.79 minutes
+F1: 71.69
+Precision: 71.81
+Recall: 71.69
+Accuracy: 71.77"

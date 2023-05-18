@@ -236,7 +236,6 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 ### Data template
-*.csv
 *.dat
 *.efx
 *.gbr
