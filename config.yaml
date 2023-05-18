@@ -2,6 +2,11 @@ dataset:
   source: 'vk'
   batch: 100
   size: 1_000_000
+  importance:
+    - 60
+    - 10
+    - 5
+    - 2.5
   dates:
     from: '09.04.21'
     to: '09.04.23'

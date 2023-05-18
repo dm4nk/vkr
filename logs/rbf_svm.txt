@@ -449,3 +449,113 @@ F1: 46.97
 Precision: 57.75
 Recall: 53.89
 Accuracy: 53.21
+
+2023-05-17 14:01:29.481675 rbf_svm parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 14.93 minutes
+F1: 37.19
+Precision: 51.74
+Recall: 50.29
+Accuracy: 50.13
+
+2023-05-17 14:25:15.600052 rbf_svm parameters
+Features 402
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.98 minutes
+F1: 48.72
+Precision: 61.67
+Recall: 55.35
+Accuracy: 56.00
+
+2023-05-17 14:29:28.836140 rbf_svm parameters
+Features 397
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 19.54 minutes
+F1: 45.56
+Precision: 53.42
+Recall: 51.85
+Accuracy: 51.75
+
+2023-05-17 14:51:04.425030 rbf_svm parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.53 minutes
+F1: 44.29
+Precision: 59.14
+Recall: 53.28
+Accuracy: 53.17
+
+2023-05-17 15:28:07.574653 rbf_svm parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.42 minutes
+F1: 44.90
+Precision: 57.34
+Recall: 52.87
+Accuracy: 53.83
+
+2023-05-17 15:41:24.138203 rbf_svm parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.60 minutes
+F1: 55.87
+Precision: 60.21
+Recall: 58.06
+Accuracy: 58.31
+
+2023-05-17 15:47:49.522561 rbf_svm parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.62 minutes
+F1: 40.03
+Precision: 57.16
+Recall: 51.57
+Accuracy: 52.01
+
+2023-05-17 15:57:50.872871 rbf_svm parameters
+Features 406
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.56 minutes
+F1: 45.93
+Precision: 57.81
+Recall: 53.39
+Accuracy: 53.83
+
+2023-05-17 16:35:50.992888 rbf_svm parameters
+Features 406
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.44 minutes
+F1: 52.03
+Precision: 58.24
+Recall: 55.71
+Accuracy: 55.71
+
+2023-05-17 16:37:35.143800 rbf_svm parameters
+Features 406
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.50 minutes
+F1: 51.72
+Precision: 59.24
+Recall: 56.07
+Accuracy: 55.69
+
+2023-05-17 16:39:21.765459 rbf_svm parameters
+Features 406
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 1.47 minutes
+F1: 49.88
+Precision: 59.06
+Recall: 55.14
+Accuracy: 55.46

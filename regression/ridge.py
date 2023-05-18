@@ -57,6 +57,8 @@ def estimate(df: DataFrame,
     with open(f'logs/{name}.txt', 'a') as classifier_log:
         classifier_log.write(log_str + log_str_results)
 
+    plt.xlabel('Реальные значения', fontsize=20)
+    plt.ylabel('Значения, предсказанные моделью', fontsize=20)
     plt.show()
 
     return log_str_results

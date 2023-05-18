@@ -349,3 +349,183 @@ F1: 67.76
 Precision: 67.77
 Recall: 67.77
 Accuracy: 67.77
+
+2023-05-17 17:11:15.590564 random_forest parameters
+Features 401
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.25 minutes
+F1: 64.74
+Precision: 64.77
+Recall: 64.75
+Accuracy: 64.75
+
+2023-05-17 17:11:30.572563 random_forest parameters
+Features 401
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.25 minutes
+F1: 62.71
+Precision: 62.73
+Recall: 62.71
+Accuracy: 62.77
+
+2023-05-17 17:11:45.478535 random_forest parameters
+Features 401
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.29 minutes
+F1: 66.61
+Precision: 66.62
+Recall: 66.62
+Accuracy: 66.61
+
+2023-05-17 17:12:02.912567 random_forest parameters
+Features 401
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.27 minutes
+F1: 63.39
+Precision: 63.53
+Recall: 63.51
+Accuracy: 63.39
+
+2023-05-17 17:13:49.240264 random_forest parameters
+Features 399
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 22.00 minutes
+F1: 67.26
+Precision: 67.27
+Recall: 67.26
+Accuracy: 67.26
+
+2023-05-17 17:37:56.281614 random_forest parameters
+Features 979
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 42.83 minutes
+F1: 69.48
+Precision: 69.50
+Recall: 69.49
+Accuracy: 69.48
+
+2023-05-17 19:00:27.893680 random_forest parameters
+Features 971
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 44.10 minutes
+F1: 69.82
+Precision: 69.83
+Recall: 69.82
+Accuracy: 69.82
+
+2023-05-17 19:44:35.090067 random_forest parameters
+Features 971
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 44.93 minutes
+F1: 67.70
+Precision: 67.70
+Recall: 67.70
+Accuracy: 67.70
+
+2023-05-17 20:29:31.706925 random_forest parameters
+Features 971
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 47.26 minutes
+F1: 70.89
+Precision: 70.89
+Recall: 70.89
+Accuracy: 70.89
+
+2023-05-17 21:16:47.824904 random_forest parameters
+Features 971
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 48.82 minutes
+F1: 68.30
+Precision: 68.34
+Recall: 68.29
+Accuracy: 68.33
+
+2023-05-17 22:09:56.168457 random_forest parameters
+Features 1004
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 45.51 minutes
+F1: 69.36
+Precision: 69.39
+Recall: 69.36
+Accuracy: 69.37
+
+2023-05-17 22:55:28.136712 random_forest parameters
+Features 1004
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 45.23 minutes
+F1: 67.61
+Precision: 67.62
+Recall: 67.63
+Accuracy: 67.61
+
+2023-05-17 23:40:44.306194 random_forest parameters
+Features 1004
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 48.49 minutes
+F1: 70.51
+Precision: 70.51
+Recall: 70.51
+Accuracy: 70.51
+
+2023-05-18 00:29:14.805156 random_forest parameters
+Features 1004
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 49.24 minutes
+F1: 68.69
+Precision: 68.73
+Recall: 68.69
+Accuracy: 68.73
+
+2023-05-18 05:26:00.362336 random_forest parameters
+Features 1009
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 46.50 minutes
+F1: 69.15
+Precision: 69.19
+Recall: 69.17
+Accuracy: 69.16
+
+2023-05-18 06:12:35.313077 random_forest parameters
+Features 1009
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 44.69 minutes
+F1: 68.23
+Precision: 68.23
+Recall: 68.23
+Accuracy: 68.23
+
+2023-05-18 06:57:20.465018 random_forest parameters
+Features 1009
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 49.15 minutes
+F1: 70.57
+Precision: 70.57
+Recall: 70.57
+Accuracy: 70.57
+
+2023-05-18 07:46:32.462305 random_forest parameters
+Features 1009
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 50.04 minutes
+F1: 68.93
+Precision: 68.96
+Recall: 68.91
+Accuracy: 69.00

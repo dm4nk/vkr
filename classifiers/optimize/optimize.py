@@ -7,7 +7,9 @@ from sklearn.svm import LinearSVC
 
 from utils import read_config
 
-
+# X_cols_add = [col + '_normalized' for col in
+#                   ['len_text', 'hashtag_count', 'url_count', 'emoji_count', 'time_window_id', 'dayofweek',
+#                    'attachments']]
 def objective(trial, X, y):
     c = trial.suggest_float('svc_c', 1e-10, 1e10, log=True)
     ngram_range_max = trial.suggest_int('ngram_range_max', 1, 3)

@@ -8,15 +8,14 @@ builder = aw.DocumentBuilder(doc)
 table = builder.start_table()
 
 builder.paragraph_format.alignment = aw.ParagraphAlignment.CENTER
-builder.font.size = 14
+builder.font.size = 12
 builder.font.name = "Times New Roman"
 
-df = pd.read_csv('results/naive_bayes.csv')
+df = pd.read_csv('results/linear_svm_semantic_tri.csv')
 
 intro = ['N/A', 'N/A', 'лайки', 'комментарии', 'просмотры', 'репосты']
 
-rows = ['+ длина текста', '+ количество хэштегов', '+ количество ссылок', '+ количество эмодзи',
-        '+ временное окно', '+ день недели', '+ количество приложений', '+ источник поста']
+rows = ['семантика']
 
 rows_titles = ['F1', 'Precision', 'Recall', 'Accuracy']
 
@@ -25,12 +24,12 @@ for m in intro:
     builder.write(m)
 builder.end_row()
 
-w, h = 6, 4 * 8 + 1
+w, h = 6, 4 * 1 + 1
 results = [['N/A' for x in range(w)] for y in range(h)]
 print(results)
 
 for i in range(1, len(df)):
-    for j in range(2, 10):
+    for j in range(2, 3):
         numbers = re.findall('\d+\.\d+', df.iloc[i, j])[1:]
 
         for k in range(len(numbers)):

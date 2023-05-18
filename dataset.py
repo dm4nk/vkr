@@ -226,20 +226,34 @@ def cut_data():
 
 
 def add_semantics():
-    df1 = pd.read_csv('data/dataset_extended.csv')
-    cols = ['is_pinned', 'text', 'len_text', 'domain', 'domain_id', 'views', 'likes', 'reposts',
-            'comments', 'log1p_views', 'log1p_likes', 'log1p_reposts', 'log1p_comments', 'post_source',
-            'post_source_id', 'hashtag', 'hashtag_count', 'url', 'url_count', 'date', 'time_window', 'time_window_id',
-            'year', 'month', 'dayofweek', 'hour', 'attachments']
+    df1 = pd.read_csv('data/dataset_preprocessed.csv')
+    cols = ['text', 'preprocessed_text', 'date',
+            'views', 'likes', 'reposts', 'comments',
+            'log1p_views', 'log1p_likes', 'log1p_reposts', 'log1p_comments',
+            'log1p_views_normalized', 'log1p_likes_normalized', 'log1p_reposts_normalized', 'log1p_comments_normalized']
 
     df1 = df1[cols]
 
-    df2 = pd.read_csv('data/dataset_with_semantic.csv')
+    df2 = pd.read_csv('data/seman/dataset_with_semantic_uni.csv')
     result = pd.concat([df1, df2], axis=1, join="inner")
 
     result.drop('Unnamed: 0', axis=1, inplace=True)
     result.fillna(0, inplace=True)
-    result.to_csv('data/dataset_extended_semantics.csv')
+    result.to_csv('data/dataset_preprocessed_with_semantic_uni.csv')
+
+    df2 = pd.read_csv('data/seman/dataset_with_semantic_bi.csv')
+    result = pd.concat([df1, df2], axis=1, join="inner")
+
+    result.drop('Unnamed: 0', axis=1, inplace=True)
+    result.fillna(0, inplace=True)
+    result.to_csv('data/dataset_preprocessed_with_semantic_bi.csv')
+
+    df2 = pd.read_csv('data/seman/dataset_with_semantic_tri.csv')
+    result = pd.concat([df1, df2], axis=1, join="inner")
+
+    result.drop('Unnamed: 0', axis=1, inplace=True)
+    result.fillna(0, inplace=True)
+    result.to_csv('data/dataset_preprocessed_with_semantic_tri.csv')
 
 
 def clean():
@@ -250,8 +264,26 @@ def clean():
     df.to_csv('data/dataset_preprocessed.csv', mode='w')
 
 
+def add_utility_class():
+    df = pd.read_csv('data/dataset_preprocessed.csv')
+    config = read_config()
+    importance = config['dataset']['importance']
+
+    vlog, llog, clog, rlog = np.log1p(df.views), np.log1p(df.likes), np.log1p(df.comments), np.log1p(df.reposts)
+    vimp, limp, cimp, rimp = importance
+    new_grade = pd.Series(vlog / vimp + llog / limp + clog / cimp + rlog / rimp, name='grade')
+    print(new_grade)
+    df['grade'] = new_grade
+
+    print('normalizing cloumns')
+    normalize_columns(df, ['grade'])
+
+    df.to_csv('data/dataset_preprocessed_with_grade.csv')
+
+
 # run()
 # extend_dataset()
-cut_data()
-# add_semantics()
+# cut_data()
+add_semantics()
 # clean()
+# add_utility_class()

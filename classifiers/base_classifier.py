@@ -18,7 +18,7 @@ def estimate(df: DataFrame,
              y_col: [str],
              name: str,
              max_df: float = 0.90,
-             min_df: float = 0.01,
+             min_df: float = 0.005,
              ):
     start = time()
     config = read_config()
@@ -63,10 +63,6 @@ def estimate(df: DataFrame,
     recall = recall_score(y_test, y_pred, average="macro")
     accuracy = accuracy_score(y_test, y_pred)
 
-    cm = confusion_matrix(y_test, y_pred, labels=classifier.classes_)
-    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classifier.classes_)
-    disp.plot()
-
     end = time()
 
     log_str_results = f'executed {(end - start) / 60:.2f} minutes\n' + \
@@ -79,6 +75,9 @@ def estimate(df: DataFrame,
     with open(f'logs/{name}.txt', 'a') as classifier_log:
         classifier_log.write(log_str + log_str_results)
 
-    plt.show()
+    # cm = confusion_matrix(y_test, y_pred, labels=classifier.classes_)
+    # disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classifier.classes_)
+    # disp.plot()
+    # plt.show()
 
     return log_str_results

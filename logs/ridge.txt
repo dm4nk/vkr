@@ -292,3 +292,31 @@ Features 399
 X_cols_add: [], y_col: log1p_likes_normalized
 Borders: bad(0.5) | good(0) | best(0.5))
 executed 0.05 minutes
+
+
+2023-05-09 18:39:32.499961 ridge parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.06 minutes
+
+
+2023-05-09 18:49:14.147403 ridge parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.05 minutes
+
+
+2023-05-09 18:52:47.673863 ridge parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.05 minutes
+
+
+2023-05-09 18:56:17.323442 ridge parameters
+Features 399
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.05 minutes

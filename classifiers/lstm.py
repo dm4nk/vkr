@@ -5,7 +5,7 @@ import pandas as pd
 from keras.callbacks import EarlyStopping
 from keras.layers import LSTM, Dense, Dropout, Input, Embedding
 from keras.models import Model
-from keras.optimizers import RMSprop
+from keras.optimizers import RMSprop, Adam
 from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 from matplotlib import pyplot as plt
@@ -17,7 +17,7 @@ from utils import read_config
 
 def run(X_cols_add: [str] = [],
         y_col: str = 'log1p_likes_normalized',
-        df=pd.read_csv('data/dataset_preprocessed_5_percent.csv'),
+        df=pd.read_csv('data/dataset_preprocessed.csv'),
         ):
     X = df.preprocessed_text
 
@@ -36,7 +36,7 @@ def run(X_cols_add: [str] = [],
         # elif counter / size < bad + good:
         #     like_to_category[like] = 1
         else:
-            like_to_category[like] = 2
+            like_to_category[like] = 1
 
     Y = df[y_col].apply(lambda like_row: like_to_category.get(like_row))
 
@@ -65,9 +65,10 @@ def run(X_cols_add: [str] = [],
     layer = Dense(256, name='FC1', activation='relu')(layer)
     layer = Dropout(0.1)(layer)
     layer = Dense(1, name='out_layer', activation='sigmoid')(layer)
+
     model = Model(inputs=inputs, outputs=layer)
     model.summary()
-    model.compile(loss='binary_crossentropy', optimizer=RMSprop(), metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.0001), metrics=['accuracy'])
 
     history = model.fit(sequences_matrix, Y_train, batch_size=1024, epochs=10,
                         validation_split=0.2, callbacks=[EarlyStopping(monitor='val_loss', min_delta=0.0001)])
@@ -101,3 +102,6 @@ def run(X_cols_add: [str] = [],
     print(log_str_results)
     with open(f'logs/lstm.txt', 'a') as classifier_log:
         classifier_log.write(log_str + log_str_results)
+
+
+run()
