@@ -1,0 +1,27 @@
+
+
+2023-05-19 16:29:25.783002 LSTM parameters
+Features 322985
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 114.67090529600779 minutes
+Loss: 0.5818783640861511
+Accuracy: 0.6869426965713501
+
+
+2023-05-19 18:45:17.202700 LSTM parameters
+Features 322985
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 65.86445387204488 minutes
+Loss: 0.5794180631637573
+Accuracy: 0.6858487725257874
+
+
+2023-05-19 20:20:27.477571 LSTM parameters
+Features 322985
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 93.67018862565358 minutes
+Loss: 0.5773527026176453
+Accuracy: 0.685704231262207

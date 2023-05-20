@@ -1,0 +1,134 @@
+,0,1,2,3,4,5,6,7,8
+0,N/A,len_text_normalized,hashtag_count_normalized,url_count_normalized,emoji_count_normalized,time_window_id_normalized,dayofweek_normalized,attachments_normalized,domain_id_normalized
+1,log1p_likes_normalized,"executed 12.60 minutes
+F1: 34.44
+Precision: 40.26
+Recall: 48.90
+Accuracy: 49.14","executed 12.68 minutes
+F1: 53.07
+Precision: 54.50
+Recall: 54.11
+Accuracy: 54.09","executed 12.71 minutes
+F1: 34.73
+Precision: 51.87
+Recall: 50.11
+Accuracy: 50.00","executed 12.75 minutes
+F1: 45.61
+Precision: 56.30
+Recall: 52.87
+Accuracy: 53.22","executed 12.77 minutes
+F1: 49.28
+Precision: 54.06
+Recall: 52.90
+Accuracy: 52.87","executed 12.63 minutes
+F1: 37.33
+Precision: 52.03
+Recall: 50.33
+Accuracy: 50.55","executed 12.60 minutes
+F1: 35.02
+Precision: 51.13
+Recall: 50.09
+Accuracy: 49.89","executed 12.54 minutes
+F1: 34.78
+Precision: 48.83
+Recall: 49.91
+Accuracy: 49.81"
+2,log1p_comments_normalized,"executed 12.60 minutes
+F1: 47.54
+Precision: 52.47
+Recall: 51.68
+Accuracy: 51.80","executed 12.67 minutes
+F1: 33.48
+Precision: 51.91
+Recall: 50.01
+Accuracy: 49.98","executed 12.69 minutes
+F1: 33.58
+Precision: 59.92
+Recall: 50.05
+Accuracy: 50.17","executed 12.75 minutes
+F1: 33.57
+Precision: 71.33
+Recall: 50.09
+Accuracy: 50.11","executed 12.80 minutes
+F1: 33.64
+Precision: 61.34
+Recall: 50.03
+Accuracy: 50.48","executed 12.64 minutes
+F1: 34.06
+Precision: 52.92
+Recall: 50.08
+Accuracy: 50.07","executed 12.64 minutes
+F1: 34.47
+Precision: 50.72
+Recall: 50.03
+Accuracy: 50.21","executed 12.55 minutes
+F1: 34.12
+Precision: 51.31
+Recall: 50.04
+Accuracy: 50.31"
+3,log1p_views_normalized,"executed 12.62 minutes
+F1: 36.07
+Precision: 59.78
+Recall: 50.77
+Accuracy: 50.85","executed 12.68 minutes
+F1: 34.41
+Precision: 68.60
+Recall: 50.42
+Accuracy: 50.46","executed 12.74 minutes
+F1: 35.02
+Precision: 63.73
+Recall: 50.55
+Accuracy: 50.76","executed 12.73 minutes
+F1: 33.93
+Precision: 69.21
+Recall: 50.24
+Accuracy: 50.23","executed 12.86 minutes
+F1: 46.43
+Precision: 51.92
+Recall: 51.23
+Accuracy: 51.27","executed 12.63 minutes
+F1: 38.09
+Precision: 51.63
+Recall: 50.33
+Accuracy: 50.50","executed 12.86 minutes
+F1: 34.15
+Precision: 52.75
+Recall: 50.08
+Accuracy: 50.16","executed 12.56 minutes
+F1: 33.60
+Precision: 45.52
+Recall: 49.90
+Accuracy: 49.69"
+4,log1p_reposts_normalized,"executed 12.60 minutes
+F1: 48.56
+Precision: 60.02
+Recall: 55.16
+Accuracy: 54.45","executed 12.67 minutes
+F1: 34.13
+Precision: 51.20
+Recall: 50.02
+Accuracy: 51.11","executed 12.69 minutes
+F1: 51.83
+Precision: 54.72
+Recall: 53.94
+Accuracy: 53.72","executed 12.78 minutes
+F1: 49.35
+Precision: 52.54
+Recall: 51.94
+Accuracy: 52.79","executed 12.79 minutes
+F1: 39.51
+Precision: 47.72
+Recall: 49.21
+Accuracy: 49.68","executed 12.61 minutes
+F1: 43.76
+Precision: 53.12
+Recall: 51.36
+Accuracy: 52.15","executed 12.55 minutes
+F1: 34.21
+Precision: 42.55
+Recall: 49.87
+Accuracy: 51.37","executed 12.56 minutes
+F1: 34.18
+Precision: 41.51
+Recall: 49.71
+Accuracy: 50.82"

@@ -8,5 +8,5 @@ def run(X_cols_add: [str] = [],
         y_col: str = 'log1p_likes_normalized',
         df=pd.read_csv('data/dataset_preprocessed_10_percent.csv'),
         ):
-    classifier = SVC(C=0.02, kernel='rbf', gamma=0.9, max_iter=5000, cache_size=5012)
+    classifier = SVC(C=0.85, kernel='rbf', gamma=1.0, max_iter=5000, cache_size=5012)
     return estimate(df, classifier, X_cols_add, y_col, 'rbf_svm')

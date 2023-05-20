@@ -719,3 +719,53 @@ F1: 70.98
 Precision: 71.10
 Recall: 71.00
 Accuracy: 71.03
+
+2023-05-19 23:10:03.707163 xbboost parameters
+Features 986
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 15.53 minutes
+F1: 68.70
+Precision: 68.70
+Recall: 68.70
+Accuracy: 68.70
+
+2023-05-19 23:25:35.354303 xbboost parameters
+Features 986
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_comments_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 15.10 minutes
+F1: 67.33
+Precision: 67.34
+Recall: 67.34
+Accuracy: 67.33
+
+2023-05-19 23:40:41.407441 xbboost parameters
+Features 986
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_views_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 15.18 minutes
+F1: 69.88
+Precision: 69.89
+Recall: 69.88
+Accuracy: 69.88
+
+2023-05-19 23:55:52.545645 xbboost parameters
+Features 986
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_reposts_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 15.21 minutes
+F1: 67.75
+Precision: 67.83
+Recall: 67.76
+Accuracy: 67.80
+
+2023-05-20 00:31:48.242754 xbboost parameters
+Features 1011
+X_cols_add: ['neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 15.61 minutes
+F1: 68.40
+Precision: 68.40
+Recall: 68.40
+Accuracy: 68.40

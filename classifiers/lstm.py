@@ -70,7 +70,7 @@ def run(X_cols_add: [str] = [],
     model.summary()
     model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.0001), metrics=['accuracy'])
 
-    history = model.fit(sequences_matrix, Y_train, batch_size=1024, epochs=10,
+    history = model.fit(sequences_matrix, Y_train, batch_size=1024, epochs=20,
                         validation_split=0.2, callbacks=[EarlyStopping(monitor='val_loss', min_delta=0.0001)])
 
     print(history.history.keys())

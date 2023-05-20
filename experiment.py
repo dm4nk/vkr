@@ -1,6 +1,6 @@
 import pandas as pd
 
-from classifiers import random_forest, xbgoost_forest
+from classifiers import xbgoost_forest, rbf_svm, poly_svm
 
 X_cols_add = [col + '_normalized' for col in
               ['len_text', 'hashtag_count', 'url_count', 'emoji_count', 'time_window_id', 'dayofweek', 'attachments',
@@ -8,6 +8,11 @@ X_cols_add = [col + '_normalized' for col in
 y_cols = ['log1p_likes_normalized', 'log1p_comments_normalized', 'log1p_views_normalized', 'log1p_reposts_normalized']
 
 df = pd.read_csv('data/dataset_preprocessed_50_percent.csv')
+# df = pd.read_csv('data/dataset_preprocessed_with_semantic_bi.csv').sample(frac=0.5)
+
+# df2 = pd.read_csv('data/dataset_preprocessed_50_percent.csv')
+# df = pd.merge(df1, df2, how='inner', on=['date', 'likes', 'reposts', 'comments', 'views'])
+# print(df.head())
 
 
 def experiment_add(classifier, filename):
@@ -51,8 +56,10 @@ def experiment_single(classifier, filename):
 # experiment(linear_svm, 'linear_svm_semantic_bi')
 # experiment(random_forest, 'random_forest')
 # experiment(naive_bayes, 'naive_bayes')
-# experiment(poly_svm, 'poly_svm')
-# experiment(rbf_svm, 'rbf_svm')
+experiment_add(poly_svm, 'poly_svm')
+experiment_add(rbf_svm, 'rbf_svm')
 
 
-experiment_add(xbgoost_forest, 'xbgoost_forest')
+# experiment_single(xbgoost_forest, 'xbgoost_forest_semantic_uni')
+
+
