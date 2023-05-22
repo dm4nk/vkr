@@ -14,7 +14,7 @@ def run(X_cols_add: [str] = [],
                                         max_features='sqrt',
                                         n_estimators=1300,
                                         max_depth=None,
-                                        n_jobs=2,
+                                        n_jobs=10,
                                         verbose=True)
 
     return estimate(df, classifier, X_cols_add, y_col, 'random_forest')

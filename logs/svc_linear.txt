@@ -2686,3 +2686,223 @@ F1: 64.86
 Precision: 64.87
 Recall: 64.87
 Accuracy: 64.86
+
+2023-05-21 22:03:59.072148 svc_linear parameters
+Features 986
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.01 minutes
+F1: 53.65
+Precision: 64.45
+Recall: 55.69
+Accuracy: 69.46
+
+2023-05-21 22:03:59.775179 svc_linear parameters
+Features 986
+X_cols_add: [], y_col: log1p_comments_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.01 minutes
+F1: 48.66
+Precision: 64.11
+Recall: 53.26
+Accuracy: 68.47
+
+2023-05-21 22:04:00.470173 svc_linear parameters
+Features 986
+X_cols_add: [], y_col: log1p_views_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.01 minutes
+F1: 55.55
+Precision: 69.04
+Recall: 57.19
+Accuracy: 70.99
+
+2023-05-21 22:04:01.167179 svc_linear parameters
+Features 986
+X_cols_add: [], y_col: log1p_reposts_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.01 minutes
+F1: 52.46
+Precision: 64.85
+Recall: 55.22
+Accuracy: 68.72
+
+2023-05-21 22:04:01.853179 svc_linear parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.01 minutes
+F1: 58.26
+Precision: 75.65
+Recall: 59.55
+Accuracy: 72.02
+
+2023-05-21 22:04:02.581179 svc_linear parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.01 minutes
+F1: 51.87
+Precision: 68.64
+Recall: 55.38
+Accuracy: 68.80
+
+2023-05-21 22:04:03.264149 svc_linear parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.01 minutes
+F1: 56.51
+Precision: 70.58
+Recall: 58.07
+Accuracy: 70.74
+
+2023-05-21 22:04:03.959184 svc_linear parameters
+Features 986
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.01 minutes
+F1: 54.77
+Precision: 69.57
+Recall: 57.16
+Accuracy: 69.21
+
+2023-05-21 22:04:50.967289 svc_linear parameters
+Features 971
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.12 minutes
+F1: 62.72
+Precision: 69.07
+Recall: 62.18
+Accuracy: 72.22
+
+2023-05-21 22:04:58.325011 svc_linear parameters
+Features 971
+X_cols_add: [], y_col: log1p_comments_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.11 minutes
+F1: 57.51
+Precision: 65.59
+Recall: 58.09
+Accuracy: 70.40
+
+2023-05-21 22:05:05.327842 svc_linear parameters
+Features 971
+X_cols_add: [], y_col: log1p_views_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.11 minutes
+F1: 63.26
+Precision: 69.60
+Recall: 62.64
+Accuracy: 72.53
+
+2023-05-21 22:05:12.221810 svc_linear parameters
+Features 971
+X_cols_add: [], y_col: log1p_reposts_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.11 minutes
+F1: 60.62
+Precision: 69.69
+Recall: 60.38
+Accuracy: 73.11
+
+2023-05-21 22:05:19.278837 svc_linear parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.12 minutes
+F1: 69.09
+Precision: 73.48
+Recall: 67.86
+Accuracy: 75.51
+
+2023-05-21 22:05:26.889841 svc_linear parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.12 minutes
+F1: 59.90
+Precision: 67.80
+Recall: 59.98
+Accuracy: 71.16
+
+2023-05-21 22:14:59.795544 svc_linear parameters
+Features 971
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.16 minutes
+F1: 49.08
+Precision: 49.74
+Recall: 50.15
+Accuracy: 50.28
+
+2023-05-21 22:15:09.715054 svc_linear parameters
+Features 971
+X_cols_add: [], y_col: log1p_comments_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.15 minutes
+F1: 48.31
+Precision: 48.75
+Recall: 49.27
+Accuracy: 49.44
+
+2023-05-21 22:15:18.958377 svc_linear parameters
+Features 971
+X_cols_add: [], y_col: log1p_views_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.15 minutes
+F1: 51.32
+Precision: 51.82
+Recall: 51.86
+Accuracy: 51.87
+
+2023-05-21 22:15:28.118246 svc_linear parameters
+Features 971
+X_cols_add: [], y_col: log1p_reposts_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.15 minutes
+F1: 50.24
+Precision: 50.21
+Recall: 50.47
+Accuracy: 50.30
+
+2023-05-21 22:15:37.142270 svc_linear parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.17 minutes
+F1: 52.78
+Precision: 53.49
+Recall: 54.17
+Accuracy: 54.06
+
+2023-05-21 22:15:47.550281 svc_linear parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.16 minutes
+F1: 49.97
+Precision: 50.59
+Recall: 51.16
+Accuracy: 51.38
+
+2023-05-21 22:15:57.184079 svc_linear parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.16 minutes
+F1: 53.74
+Precision: 54.33
+Recall: 54.46
+Accuracy: 54.56
+
+2023-05-21 22:16:06.995911 svc_linear parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 0.16 minutes
+F1: 51.73
+Precision: 51.67
+Recall: 52.05
+Accuracy: 51.84

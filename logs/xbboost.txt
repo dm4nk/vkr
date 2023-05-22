@@ -769,3 +769,53 @@ F1: 68.40
 Precision: 68.40
 Recall: 68.40
 Accuracy: 68.40
+
+2023-05-20 16:12:06.804518 xbboost parameters
+Features 1192
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: grade_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.68 minutes
+F1: 67.84
+Precision: 67.87
+Recall: 67.87
+Accuracy: 67.84
+
+2023-05-20 16:15:33.539925 xbboost parameters
+Features 1192
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized', 'neutral', 'positive', 'negative', 'skip', 'speech'], y_col: grade_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 0.72 minutes
+F1: 66.78
+Precision: 66.79
+Recall: 66.79
+Accuracy: 66.78
+
+2023-05-20 16:18:20.695927 xbboost parameters
+Features 973
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized', 'neutral', 'positive', 'negative', 'skip', 'speech'], y_col: grade_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 30.86 minutes
+F1: 71.80
+Precision: 71.81
+Recall: 71.79
+Accuracy: 71.81
+
+2023-05-20 16:56:51.580794 xbboost parameters
+Features 973
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized', 'neutral', 'positive', 'negative', 'skip', 'speech'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 29.68 minutes
+F1: 74.24
+Precision: 74.30
+Recall: 74.24
+Accuracy: 74.25
+
+2023-05-21 20:25:54.151765 xbboost parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 14.52 minutes
+F1: 73.00
+Precision: 73.07
+Recall: 73.01
+Accuracy: 73.02

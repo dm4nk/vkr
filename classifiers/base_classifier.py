@@ -46,10 +46,10 @@ def estimate(df: DataFrame,
         counter += count
         if counter / size < bad:
             like_to_category[like] = 0
-        # elif counter / size < bad + good:
-        #     like_to_category[like] = 0.5
-        else:
+        elif counter / size < bad + good:
             like_to_category[like] = 1
+        else:
+            like_to_category[like] = 2
 
     y = df[y_col].apply(lambda like_row: like_to_category.get(like_row))
 

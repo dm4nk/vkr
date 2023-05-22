@@ -529,3 +529,23 @@ F1: 68.93
 Precision: 68.96
 Recall: 68.91
 Accuracy: 69.00
+
+2023-05-21 19:47:00.501455 random_forest parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized', 'domain_id_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 14.86 minutes
+F1: 80.66
+Precision: 80.77
+Recall: 80.66
+Accuracy: 80.68
+
+2023-05-21 20:04:51.680475 random_forest parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.5) | good(0) | best(0.5))
+executed 18.74 minutes
+F1: 74.72
+Precision: 74.87
+Recall: 74.76
+Accuracy: 74.75

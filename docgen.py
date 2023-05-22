@@ -8,14 +8,15 @@ builder = aw.DocumentBuilder(doc)
 table = builder.start_table()
 
 builder.paragraph_format.alignment = aw.ParagraphAlignment.CENTER
-builder.font.size = 12
+builder.font.size = 11
 builder.font.name = "Times New Roman"
 
-df = pd.read_csv('results/linear_svm_semantic_tri.csv')
+df = pd.read_csv('results/poly_svm.csv')
 
 intro = ['N/A', 'N/A', 'лайки', 'комментарии', 'просмотры', 'репосты']
 
-rows = ['семантика']
+rows = ['+ длина текста', '+ количество хэштегов', '+ количество ссылок', '+ количество эмодзи',
+        '+ временное окно', '+ день недели', '+ количество приложений', '+ источник поста']
 
 rows_titles = ['F1', 'Precision', 'Recall', 'Accuracy']
 
@@ -24,12 +25,12 @@ for m in intro:
     builder.write(m)
 builder.end_row()
 
-w, h = 6, 4 * 1 + 1
+w, h = 6, 4 * 8 + 1
 results = [['N/A' for x in range(w)] for y in range(h)]
 print(results)
 
 for i in range(1, len(df)):
-    for j in range(2, 3):
+    for j in range(2, 10):
         numbers = re.findall('\d+\.\d+', df.iloc[i, j])[1:]
 
         for k in range(len(numbers)):

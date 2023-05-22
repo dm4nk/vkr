@@ -8,6 +8,6 @@ def run(X_cols_add: [str] = [],
         y_col: str = 'log1p_likes_normalized',
         df=pd.read_csv('data/dataset_preprocessed_5_percent.csv'),
         ):
-    xbboost = XGBClassifier(n_estimators=1300, max_depth=None, objective='binary:logistic')
+    xgboost = XGBClassifier(n_estimators=1300, max_depth=None, objective='reg:squarederror')
 
-    return estimate(df, xbboost, X_cols_add, y_col, 'xbboost')
+    return estimate(df, xgboost, X_cols_add, y_col, 'xgboost')
