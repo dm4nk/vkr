@@ -1,6 +1,6 @@
 import pandas as pd
 
-from classifiers import linear_svm, xgboost_forest
+from classifiers import linear_svm, xgboost_forest, rbf_svm
 
 X_cols_add = [col + '_normalized' for col in
               ['len_text', 'hashtag_count', 'url_count', 'emoji_count', 'time_window_id', 'dayofweek', 'attachments']]
@@ -89,5 +89,5 @@ def experiment_two_columns(classifier, filename):
 # experiment_add(rbf_svm, 'rbf_svm')
 # experiment_single(xbgoost_forest, 'xbgoost_forest_semantic_uni')
 
-# experiment_two_columns(linear_svm, 'linear_svm_two_columns')
-experiment_two_columns(xgboost_forest, 'xgboost_forest_two_columns')
+experiment_two_columns(linear_svm, 'linear_svm_two_columns')
+# experiment_two_columns(xgboost_forest, 'xgboost_forest_two_columns')

@@ -879,3 +879,23 @@ F1: 52.93
 Precision: 52.93
 Recall: 52.93
 Accuracy: 52.93
+
+2023-05-23 10:39:32.430482 rbf_svm parameters
+Features 971
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 28.93 minutes
+F1: 39.57
+Precision: 42.83
+Recall: 40.77
+Accuracy: 40.50
+
+2023-05-23 11:08:28.723045 rbf_svm parameters
+Features 971
+X_cols_add: [], y_col: log1p_comments_normalized
+Borders: bad(0.33) | good(0.33) | best(0.33))
+executed 30.46 minutes
+F1: 30.31
+Precision: 41.24
+Recall: 37.95
+Accuracy: 37.71

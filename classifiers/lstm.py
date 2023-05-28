@@ -2,13 +2,14 @@ from datetime import datetime
 from time import time
 
 import pandas as pd
-from keras.callbacks import EarlyStopping
-from keras.layers import LSTM, Dense, Dropout, Input, Embedding
+from keras.callbacks import ReduceLROnPlateau
+from keras.layers import LSTM, Dense, Dropout, Input, Embedding, SimpleRNN
 from keras.models import Model
-from keras.optimizers import RMSprop, Adam
+from keras.optimizers import Adam
 from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 from matplotlib import pyplot as plt
+from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
@@ -17,7 +18,7 @@ from utils import read_config
 
 def run(X_cols_add: [str] = [],
         y_col: str = 'log1p_likes_normalized',
-        df=pd.read_csv('data/dataset_preprocessed.csv'),
+        df=pd.read_csv('data/dataset_preprocessed_10_percent.csv'),
         ):
     X = df.preprocessed_text
 
@@ -43,6 +44,7 @@ def run(X_cols_add: [str] = [],
     le = LabelEncoder()
     Y = le.fit_transform(Y)
     Y = Y.reshape(-1, 1)
+    print(Y)
 
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.15)
 
@@ -59,47 +61,69 @@ def run(X_cols_add: [str] = [],
     sequences = tok.texts_to_sequences(X_train)
     sequences_matrix = pad_sequences(sequences, maxlen=max_len)
 
-    inputs = Input(name='inputs', shape=[max_len])
+    inputs = Input(shape=[max_len])
     layer = Embedding(max_words, 500, input_length=max_len)(inputs)
+    layer = LSTM(64, return_sequences=True)(layer)
+    layer = LSTM(64, return_sequences=True)(layer)
     layer = LSTM(64)(layer)
-    layer = Dense(256, name='FC1', activation='relu')(layer)
+    layer = Dense(64, activation='relu')(layer)
+    # layer = Dropout(0.2)(layer)
+    # layer = Dense(8, activation='relu')(layer)
+    # layer = Dense(3, name='out_layer', activation='softmax')(layer)
     layer = Dropout(0.1)(layer)
-    layer = Dense(1, name='out_layer', activation='sigmoid')(layer)
+    layer = Dense(1, activation='sigmoid')(layer)
 
     model = Model(inputs=inputs, outputs=layer)
     model.summary()
-    model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.0001), metrics=['accuracy'])
+    # model.compile(loss='sparse_categorical_crossentropy', optimizer=Adam(learning_rate=0.0001), metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy',
+                  optimizer=Adam(learning_rate=0.0001),
+                  metrics=['accuracy'])
 
-    history = model.fit(sequences_matrix, Y_train, batch_size=1024, epochs=20,
-                        validation_split=0.2, callbacks=[EarlyStopping(monitor='val_loss', min_delta=0.0001)])
+    history = model.fit(sequences_matrix, Y_train, batch_size=1024, epochs=30, validation_split=0.2, callbacks=[ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.000001)])
 
-    print(history.history.keys())
     # summarize history for accuracy
     plt.plot(history.history['accuracy'])
     plt.plot(history.history['val_accuracy'])
-    plt.title('model accuracy')
-    plt.ylabel('accuracy')
-    plt.xlabel('epoch')
-    plt.legend(['train', 'test'], loc='upper left')
+    plt.title('График обучения нейронной сети (Точность)')
+    plt.ylabel('Точность')
+    plt.xlabel('Эпоха')
+    plt.legend(['Тренировочная выборка', 'Валидационная выборка'], loc='upper left', bbox_to_anchor=(1.05, 1))
+    plt.savefig("img/accuracy.svg")
     plt.show()
+
     # summarize history for loss
     plt.plot(history.history['loss'])
     plt.plot(history.history['val_loss'])
-    plt.title('model loss')
-    plt.ylabel('loss')
-    plt.xlabel('epoch')
-    plt.legend(['train', 'test'], loc='upper left')
+    plt.title('График обучения нейронной сети (Функция ошибок)')
+    plt.ylabel('Функция ошибок')
+    plt.xlabel('Эпоха')
+    plt.legend(['Тренировочная выборка', 'Валидационная выборка'], loc='upper left', bbox_to_anchor=(1.05, 1))
+    plt.savefig("img/loss.svg")
     plt.show()
 
     test_sequences = tok.texts_to_sequences(X_test)
     test_sequences_matrix = pad_sequences(test_sequences, maxlen=max_len)
-    accr = model.evaluate(test_sequences_matrix, Y_test)
+    print(test_sequences_matrix)
+
+    y_pred = model.predict(test_sequences_matrix)
+    print(y_pred)
+    y_pred[y_pred <= 0.5] = 0
+    y_pred[y_pred > 0.5] = 1
+
+    f1 = f1_score(y_pred, Y_test, average='macro')
+    precision = precision_score(y_pred, Y_test, average='macro')
+    recall = recall_score(y_pred, Y_test, average="macro")
+    accuracy = accuracy_score(y_pred, Y_test)
 
     end = time()
-    log_str_results = f'executed {(end - start) / 60} minutes\n' + \
-                      f'Loss: {accr[0]}\nAccuracy: {accr[1]}\n'
-
+    log_str_results = f'executed {(end - start) / 60:.2f} minutes\n' + \
+                      f'F1: {f1 * 100:.2f}\n' \
+                      f'Precision: {precision * 100:.2f}\n' \
+                      f'Recall: {recall * 100:.2f}\n' \
+                      f'Accuracy: {accuracy * 100:.2f}'
     print(log_str_results)
+
     with open(f'logs/lstm.txt', 'a') as classifier_log:
         classifier_log.write(log_str + log_str_results)
 

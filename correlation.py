@@ -4,10 +4,11 @@ import seaborn as sns
 
 
 def run():
-    df = pd.read_csv("data/dataset_extended.csv")
+    df = pd.read_csv("data/dataset_preprocessed_with_grade.csv")[['views', 'likes', 'reposts', 'comments', 'log1p_views_normalized', 'log1p_likes_normalized', 'log1p_reposts_normalized', 'log1p_comments_normalized',]]
     plt.figure(figsize=(30, 30))
-    sns.heatmap(df.corr(numeric_only=True), center=0, annot=True, fmt='.1%', cmap="PiYG")
+    sns.heatmap(df.corr(numeric_only=True), center=0, annot=True, fmt='.2f', cmap="PiYG")
     plt.yticks(rotation=0)
+    plt.xticks(rotation=90)
     plt.show()
 
 
