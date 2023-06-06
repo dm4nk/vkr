@@ -1,0 +1,38 @@
+,0,1,2,3,4,5,6,7
+0,N/A,No parameters,"['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized']",N/A,N/A,N/A,N/A,N/A
+1,log1p_likes_normalized,"executed 53.41 minutes
+F1: 43.51
+Precision: 43.35
+Recall: 43.87
+Accuracy: 43.87","executed 57.38 minutes
+F1: 47.97
+Precision: 47.77
+Recall: 48.33
+Accuracy: 48.21",N/A,N/A,N/A,N/A,N/A
+2,log1p_comments_normalized,"executed 53.31 minutes
+F1: 40.42
+Precision: 40.24
+Recall: 40.71
+Accuracy: 40.55","executed 53.30 minutes
+F1: 44.06
+Precision: 43.90
+Recall: 44.41
+Accuracy: 44.24",N/A,N/A,N/A,N/A,N/A
+3,log1p_views_normalized,"executed 837.35 minutes
+F1: 45.39
+Precision: 45.32
+Recall: 45.68
+Accuracy: 45.65","executed 55.54 minutes
+F1: 50.61
+Precision: 50.45
+Recall: 51.06
+Accuracy: 50.96",N/A,N/A,N/A,N/A,N/A
+4,log1p_reposts_normalized,"executed 768.70 minutes
+F1: 42.32
+Precision: 42.21
+Recall: 42.56
+Accuracy: 42.29","executed 55.53 minutes
+F1: 45.78
+Precision: 45.58
+Recall: 46.13
+Accuracy: 45.83",N/A,N/A,N/A,N/A,N/A

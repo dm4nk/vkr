@@ -11,12 +11,11 @@ builder.paragraph_format.alignment = aw.ParagraphAlignment.CENTER
 builder.font.size = 11
 builder.font.name = "Times New Roman"
 
-df = pd.read_csv('results/poly_svm.csv')
+df = pd.read_csv('results/iter3/xgboost_forest_two_columns.csv')
 
 intro = ['N/A', 'N/A', 'лайки', 'комментарии', 'просмотры', 'репосты']
 
-rows = ['+ длина текста', '+ количество хэштегов', '+ количество ссылок', '+ количество эмодзи',
-        '+ временное окно', '+ день недели', '+ количество приложений', '+ источник поста']
+rows = ['первый', 'второй']
 
 rows_titles = ['F1', 'Precision', 'Recall', 'Accuracy']
 
@@ -30,7 +29,7 @@ results = [['N/A' for x in range(w)] for y in range(h)]
 print(results)
 
 for i in range(1, len(df)):
-    for j in range(2, 10):
+    for j in range(2, 4):
         numbers = re.findall('\d+\.\d+', df.iloc[i, j])[1:]
 
         for k in range(len(numbers)):

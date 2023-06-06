@@ -129,3 +129,93 @@ F1: 56.52
 Precision: 56.55
 Recall: 56.51
 Accuracy: 56.30
+
+2023-05-28 23:13:54.264041 xgboost parameters
+Features 971
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 60.13 minutes
+F1: 43.54
+Precision: 43.38
+Recall: 43.93
+Accuracy: 43.80
+
+2023-05-29 17:28:23.753778 xgboost parameters
+Features 971
+X_cols_add: [], y_col: log1p_likes_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 53.41 minutes
+F1: 43.51
+Precision: 43.35
+Recall: 43.87
+Accuracy: 43.87
+
+2023-05-29 18:21:48.724889 xgboost parameters
+Features 971
+X_cols_add: [], y_col: log1p_comments_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 53.31 minutes
+F1: 40.42
+Precision: 40.24
+Recall: 40.71
+Accuracy: 40.55
+
+2023-05-29 19:15:07.756036 xgboost parameters
+Features 971
+X_cols_add: [], y_col: log1p_views_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 837.35 minutes
+F1: 45.39
+Precision: 45.32
+Recall: 45.68
+Accuracy: 45.65
+
+2023-05-30 09:12:29.763694 xgboost parameters
+Features 971
+X_cols_add: [], y_col: log1p_reposts_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 768.70 minutes
+F1: 42.32
+Precision: 42.21
+Recall: 42.56
+Accuracy: 42.29
+
+2023-05-30 22:01:12.405383 xgboost parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_likes_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 57.38 minutes
+F1: 47.97
+Precision: 47.77
+Recall: 48.33
+Accuracy: 48.21
+
+2023-05-30 22:58:35.661491 xgboost parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_comments_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 53.30 minutes
+F1: 44.06
+Precision: 43.90
+Recall: 44.41
+Accuracy: 44.24
+
+2023-05-30 23:51:53.578269 xgboost parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_views_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 55.54 minutes
+F1: 50.61
+Precision: 50.45
+Recall: 51.06
+Accuracy: 50.96
+
+2023-05-31 00:47:26.443550 xgboost parameters
+Features 971
+X_cols_add: ['len_text_normalized', 'hashtag_count_normalized', 'url_count_normalized', 'emoji_count_normalized', 'time_window_id_normalized', 'dayofweek_normalized', 'attachments_normalized'], y_col: log1p_reposts_normalized
+Borders: bad(0.25) | good(0.25) | best(0.25))
+executed 55.53 minutes
+F1: 45.78
+Precision: 45.58
+Recall: 46.13
+Accuracy: 45.83

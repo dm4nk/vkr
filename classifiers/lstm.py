@@ -71,12 +71,12 @@ def run(X_cols_add: [str] = [],
     # layer = Dense(8, activation='relu')(layer)
     # layer = Dense(3, name='out_layer', activation='softmax')(layer)
     layer = Dropout(0.1)(layer)
-    layer = Dense(1, activation='sigmoid')(layer)
+    layer = Dense(3, activation='softmax')(layer)
 
     model = Model(inputs=inputs, outputs=layer)
     model.summary()
     # model.compile(loss='sparse_categorical_crossentropy', optimizer=Adam(learning_rate=0.0001), metrics=['accuracy'])
-    model.compile(loss='binary_crossentropy',
+    model.compile(loss='sparse_categorical_crossentropy',
                   optimizer=Adam(learning_rate=0.0001),
                   metrics=['accuracy'])
 

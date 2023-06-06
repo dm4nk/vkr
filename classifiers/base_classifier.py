@@ -24,6 +24,7 @@ def estimate(df: DataFrame,
     config = read_config()
     bad = config['classification']['ranges']['bad']
     good = config['classification']['ranges']['good']
+    ok = config['classification']['ranges']['ok']
     best = config['classification']['ranges']['best']
 
     ngram_range = (config['classification']['ngram']['min'], config['classification']['ngram']['max'])
@@ -48,8 +49,10 @@ def estimate(df: DataFrame,
             like_to_category[like] = 0
         elif counter / size < bad + good:
             like_to_category[like] = 1
-        else:
+        elif counter / size < bad + good + ok:
             like_to_category[like] = 2
+        else:
+            like_to_category[like] = 3
 
     y = df[y_col].apply(lambda like_row: like_to_category.get(like_row))
 

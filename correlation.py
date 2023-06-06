@@ -1,6 +1,10 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+import locale
+
+plt.rcParams['axes.formatter.use_locale'] = True
+locale._override_localeconv["decimal_point"] = ','
 
 
 def run():

@@ -55,7 +55,7 @@ def experiment_single_column(classifier, filename):
         results[j + 1][1] = classifier.run(X_cols_add, y_cols[j], df)
 
     print(results)
-    pd.DataFrame(results).to_csv(f'results/iter2/{filename}.csv')
+    pd.DataFrame(results).to_csv(f'results/iter3/{filename}.csv')
 
 
 def experiment_two_columns(classifier, filename):
@@ -75,7 +75,7 @@ def experiment_two_columns(classifier, filename):
         results[j + 1][2] = classifier.run(X_cols_add, y_cols[j], df)
 
     print(results)
-    pd.DataFrame(results).to_csv(f'results/iter2/{filename}.csv')
+    pd.DataFrame(results).to_csv(f'results/iter3/{filename}.csv')
 
 
 # experiment_single(linear_svm, 'linear_svm_semantic_tri')
@@ -90,4 +90,4 @@ def experiment_two_columns(classifier, filename):
 # experiment_single(xbgoost_forest, 'xbgoost_forest_semantic_uni')
 
 experiment_two_columns(linear_svm, 'linear_svm_two_columns')
-# experiment_two_columns(xgboost_forest, 'xgboost_forest_two_columns')
+experiment_two_columns(xgboost_forest, 'xgboost_forest_two_columns')
